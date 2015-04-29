@@ -1,7 +1,22 @@
-@(message: String)
+@(message: String) <!-- Ta in ett argument med "Student" här. Så kan vi använda all info berörande en viss student i alla views. Bara att skicka in objektet i viewsen nedan.  -->
 
-@main("Welcome to Play") {
+@main("Ladok 2.0") {
 
-    @play20.welcome(message, style = "Java")
+    <!-- Saknar container runt denna row. Får kolla på det -->
+    <!-- Alla delar är uppdelade i egna views. -->
+    <!-- Bootstrap och annat importeras i main.scala.html -->
+    <!-- Importera det som behövs där. -->
+
+    <div class="row">
+        <div class="col-md-6">
+            @student()
+        </div>
+        <div class="col-md-6">
+            @studier()
+        </div>
+        <div class="col-md-6">
+            @aktivitet()
+        </div>
+    </div>
 
 }
