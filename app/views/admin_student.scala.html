@@ -1,0 +1,32 @@
+@admin_main("Ladok 2.0 - Administration - Student") {
+
+    <form action="@routes.Administration.addStudent()" method="POST" class="form" role="form">
+        <legend>Lägg till student</legend>
+        <div class="form-group">
+            <label>Användarnamn</label>
+            <input required type="text" class="form-control" name="username" placeholder="Användarnamn">
+        </div>
+        <div class="form-group">
+            <label>Lösenord</label>
+            <input required type="password" class="form-control" name="password" placeholder="Lösenord">
+        </div>
+        FLER FÄLT SKA IN. <br>
+
+        <button type="submit" class="btn btn-success">Lägg till</button>
+    </form>
+
+
+
+
+    <!--
+    <h4>*Ska kunna göras här*</h4>
+    <i>
+        <ul>
+            <li>Skapa student</li>
+            <li>Redigera student</li>
+            <li>Ta bort student</li>
+        </ul>
+    </i>
+    -->
+
+}

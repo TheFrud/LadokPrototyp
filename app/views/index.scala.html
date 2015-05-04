@@ -1,4 +1,4 @@
-@(message: String) <!-- Ta in ett argument med "Student" här. Så kan vi använda all info berörande en viss student i alla views. Bara att skicka in objektet i viewsen nedan.  -->
+@(message: String)(student: Student) <!-- Ta in ett argument med "Student" här. Så kan vi använda all info berörande en viss student i alla views. Bara att skicka in objektet i viewsen nedan.  -->
 
 @main("Ladok 2.0") {
 
@@ -6,6 +6,8 @@
     <!-- Alla delar är uppdelade i egna views. -->
     <!-- Bootstrap och annat importeras i main.scala.html -->
     <!-- Importera det som behövs där. -->
+
+    <a href="@routes.Application.logout()">Logga ut</a>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -64,13 +66,13 @@
 
     <div class="row">
         <div class="col-md-6">
-            @student()
+            @views.html.student(student)
         </div>
         <div class="col-md-6">
-            @studier()
+            @views.html.studier(student)
         </div>
         <div class="col-md-6">
-            @aktivitet()
+            @views.html.aktivitet(student)
         </div>
     </div>
 

@@ -1,0 +1,25 @@
+@(response: String)
+
+@main("Ladok 2.0 - Login") {
+
+    <form action="@routes.Application.login()" method="POST" class="form" role="form">
+        <legend>Logga in</legend>
+        <div class="form-group">
+            <label>Användarnamn</label>
+            <input required type="text" class="form-control" name="username" placeholder="Användarnamn">
+        </div>
+        <div class="form-group">
+            <label>Lösenord</label>
+            <input required type="password" class="form-control" name="password" placeholder="Lösenord">
+        </div>
+
+        <button type="submit" class="btn btn-success">Logga in</button>
+    </form>
+    @response
+
+    <br><br><br>
+    Göbbar -> Skapa ett studentkonto <a href="http://localhost:8085/admin/student">här</a>
+    <br>
+    Kör på minnesdatabasen nu så ingen databas-konfigurering behövs för att få det att funka.
+
+}
