@@ -2,6 +2,16 @@
 
 @main("Ladok 2.0 - Login") {
 
+    <div class="container">
+
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp Ladok</h2>
+            </div>
+        </div>
+
+
     <form action="@routes.Application.login()" method="POST" class="form" role="form">
         <legend>Logga in</legend>
         <div class="form-group">
@@ -15,11 +25,26 @@
 
         <button type="submit" class="btn btn-success">Logga in</button>
     </form>
-    @response
+   <!-- @response-->
 
-    <br><br><br>
-    Göbbar -> Skapa ett studentkonto <a href="@routes.Administration.student()">här</a>
-    <br>
-    Kör på minnesdatabasen nu så ingen databas-konfigurering behövs för att få det att funka.
+
+<br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a href="@routes.Application.logout()">Logga ut</a>
+            </div>
+
+        </div>
+
+        <br><br><br>
+        Göbbar -> Skapa ett studentkonto <a href="@routes.Administration.student()">här</a>
+        <br>
+        Kör på minnesdatabasen nu så ingen databas-konfigurering behövs för att få det att funka.
+
+
+    </div>
+
+
 
 }
+

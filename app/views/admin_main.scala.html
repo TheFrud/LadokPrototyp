@@ -4,6 +4,8 @@
 
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
@@ -24,6 +26,16 @@
 
     </head>
     <body>
+
+        <div class="container">
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp Ladok</h2>
+            </div>
+        </div>
+
+
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -65,5 +77,12 @@
             </div><!-- /.container-fluid -->
         </nav>
     @content
+<br>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="@routes.Application.logout()">Logga ut</a>
+                </div>
+
+        </div>
     </body>
 </html>

@@ -6,13 +6,6 @@
     <!-- Alla delar är uppdelade i egna views. -->
     <!-- Bootstrap och annat importeras i main.scala.html -->
     <!-- Importera det som behövs där. -->
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-        <body>
 
 
 <div class="container">
@@ -20,7 +13,7 @@
 <br>
     <div class="panel panel-primary">
         <div class="panel-heading">
-           <h2> <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp Ladok</h2>
+           <h2><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp Ladok</h2>
         </div>
         </div>
 
@@ -66,9 +59,10 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
+            <a href="@routes.Application.logout()" role="button" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga ut</a>
         </div>
     </div>
     </div>
 
-</body>
+    glyphicon glyphicon-log-out
 }
