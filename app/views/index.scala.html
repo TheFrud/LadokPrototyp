@@ -9,18 +9,46 @@
 
     <a href="@routes.Application.logout()">Logga ut</a>
 
-
+<div class="container">
 
     <div class="row">
-        <div class="col-md-6">
-            @views.html.student(student)
-        </div>
-        <div class="col-md-6">
-            @views.html.studier(student)
-        </div>
-        <div class="col-md-6">
-            @views.html.aktivitet(student)
-        </div>
-    </div>
 
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><h3><i class="fa fa-user"></i> Student</h3></h3>
+                </div>
+                <div class="panel-body">
+                @views.html.student(student)
+                </div>
+            </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><h3><i class="fa fa-flag"></i> Aktivitet</h3>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                    @views.html.aktivitet(student)
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><h3><i class="fa fa-pencil-square-o"></i> Studier</h3></h3>
+                </div>
+                <div class="panel-body">
+                @views.html.studier(student)
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
 }
