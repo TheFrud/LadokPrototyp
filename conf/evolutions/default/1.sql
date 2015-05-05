@@ -24,11 +24,7 @@ create sequence student_seq;
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
-
-drop table if exists student;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists student cascade;
 
 drop sequence if exists student_seq;
 
