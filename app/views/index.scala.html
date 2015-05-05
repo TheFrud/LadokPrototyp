@@ -7,8 +7,16 @@
     <!-- Bootstrap och annat importeras i main.scala.html -->
     <!-- Importera det som behövs där. -->
 
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
 
-<div class="container">
+
+        <div class="container">
 
 <br>
     <div class="panel panel-primary">
@@ -23,16 +31,17 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><h3><i class="fa fa-user"></i> Student</h3></h3>
+                    <h3 class="panel-title"><h3><i class="fa fa-user"></i> Om dig</h3></h3>
                 </div>
                 <div class="panel-body">
                 @views.html.student(student)
+
                 </div>
             </div>
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><h3><i class="fa fa-flag"></i> Aktivitet</h3>
+                        <h3 class="panel-title"><h3><i class="fa fa-flag"></i> Nyheter <span class="badge">3</span></a></h3>
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -45,7 +54,7 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><h3><i class="fa fa-pencil-square-o"></i> Studier</h3></h3>
+                    <h3 class="panel-title"><h3><i class="fa fa-pencil-square-o"></i> Dina studier</h3></h3>
                 </div>
                 <div class="panel-body">
                 @views.html.studier(student)
@@ -64,5 +73,4 @@
     </div>
     </div>
 
-    glyphicon glyphicon-log-out
 }
