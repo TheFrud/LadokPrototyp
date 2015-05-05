@@ -1,5 +1,7 @@
 @(student: Student)
 
+<!-- Expanderande element -->
+<!--ELEMENT 1-->
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -9,16 +11,68 @@
                 </a>
             </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
 
+                <h4>Slutförda kurser</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Benämning</th>
+                        <th>Betyg</th>
 
+                    </tr>
+
+                    <tr>
+                        <td>Interaktionsdesign</td>
+                        <td>VG</td>
+                    </tr>
+                    <tr>
+                        <td>Beslutstödsystem</td>
+                        <td>G</td>
+                    </tr>
+                    <tr>
+                        <td>Systemutvecklingsprojekt</td>
+                        <td>VG</td>
+                    </tr>
+                </table>
+
+                <h4>Pågående kurser</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Benämning</th>
+                        <th>Slutdatum</th>
+
+                    </tr>
+
+                    <tr>
+                        <td>Interaktionsdesign</td>
+                        <td>2015-06-04</td>
+                    </tr>
+
+                </table>
+
+                <h4>Öppna för registrering</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Benämning</th>
+                        <th>Startdatum</th>
+
+                    </tr>
+
+                    <tr>
+                        <td>Sommarlov</td>
+                        <td>2015-06-05</td>
+                    </tr>
+
+                </table>
 
 
 
             </div>
         </div>
     </div>
+
+        <!--ELEMENT 2-->
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
@@ -33,6 +87,8 @@
             </div>
         </div>
     </div>
+
+        <!--ELEMENT 3-->
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
