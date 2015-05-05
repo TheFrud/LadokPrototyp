@@ -1,11 +1,12 @@
-name := "ladokprototyp"
+name := """LadokPrototyp"""
 
-version := "1.0"
+version := "1.0-SNAPSHOT"
 
-lazy val `ladokprototyp` = (project in file(".")).enablePlugins(PlayJava)
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.11.1"
-
-libraryDependencies ++= Seq( javaJdbc , javaEbean , cache , javaWs, "postgresql" % "postgresql" % "9.1-901.jdbc4" )
-
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
+libraryDependencies ++= Seq(
+  javaJdbc,
+  javaEbean,
+  "mysql" % "mysql-connector-java" % "5.1.32",
+  "postgresql" % "postgresql" % "9.1-901.jdbc4"
+)     
