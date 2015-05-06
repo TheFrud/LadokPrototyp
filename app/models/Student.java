@@ -3,8 +3,10 @@ package models;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,15 +29,21 @@ public class Student extends Model {
     public String ssn;
     public String firstName;
     public String surname;
+    public String co;
     public String streetAdress;
     public String zipcode;
     public String city;
     public String email;
 
-    /*
+    public String toString(){
+        return username + " (" + firstName + " " + surname + ")";
+    }
+
+    @OneToMany(cascade= CascadeType.ALL)
     public List<Program> programs  = new ArrayList<Program>();
-    public List<Activity> activities;
-    */
+
+    @OneToMany(cascade= CascadeType.ALL)
+    public List<Activity> activities = new ArrayList<Activity>();
 
     public static Finder<Long, Student> find = new Finder<Long, Student>(Long.class, Student.class);
 

@@ -17,6 +17,7 @@ GET         /logout                   controllers.Application.logout()
 # Navigation
 GET         /admin                    controllers.Administration.index()
 GET         /admin/student            controllers.Administration.student()
+GET         /admin/studier            controllers.Administration.studier()
 
 # Actions
 POST        /admin/student/add        controllers.Administration.addStudent()

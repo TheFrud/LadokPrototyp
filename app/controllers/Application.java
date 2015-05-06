@@ -49,4 +49,9 @@ public class Application extends Controller {
         session().remove("loggedIn");
         return redirect(controllers.routes.Application.loginPage("Du har nu loggats ut."));
     }
+
+
+
+
+
 }
