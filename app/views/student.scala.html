@@ -15,40 +15,65 @@
     </tr>
 
     <tr>
-        <td><b>Gatuadress</b></td>
-        <td>@student.streetAdress</td>
+        <td><b>Telefonnummer</b></td>
+        <td>0702590167</td>
     </tr>
 
     <tr>
-        <td><b>Postadress</b></td>
-        <td>@student.zipcode @student.city</td>
+        <td><b>Aviseringar</b></td>
+        <td>SMS</td>
     </tr>
+
+
 
 </table>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn btn-block" data-toggle="modal" data-target="#myModal">
+   Ändra inställningar
+</button>
 
-<!-- Expanderande element -->
-<!--ELEMENT 1-->
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingFive">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Handlingar</a>
-            </h4>
-        </div>
-        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-            <div class="panel-body">
-
-                <button type="button" class="btn btn-success btn-lg btn-block">Studieintyg</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block">Examensansökan</button>
-                <button type="button" class="btn btn-danger btn-lg btn-block">Avsluta studier</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Ändra dina inställningar</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
 
 
+                    <tr>
+                        <td><b>Namn</b></td>
+                        <td>@student.firstName</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Mejladress</b></td>
+                        <td>@student.email</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Telefonnummer</b></td>
+                        <td>0702590167</td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Aviseringar</b></td>
+                        <td>SMS</td>
+                    </tr>
+
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
+                <button type="button" class="btn btn-primary">Spara</button>
             </div>
         </div>
     </div>
-
-
 </div>
+
