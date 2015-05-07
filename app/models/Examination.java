@@ -18,13 +18,14 @@ public class Examination extends Model {
     @Id
     public long id;
 
-    public Examination(String name, String points, String grade) {
+    public Examination(String name, String points, String grade, String status) {
         this.name = name;
         this.points = points;
         this.grade = grade;
+        this.status = status;
     }
 
-    public void setRegisterDate(GregorianCalendar firstDateToRegister, GregorianCalendar lastDateToRegister) {
+    public void setRegisterDate(String firstDateToRegister, String lastDateToRegister) {
         this.firstDateToRegister = firstDateToRegister;
         this.lastDateToRegister = lastDateToRegister;
     }
@@ -34,7 +35,7 @@ public class Examination extends Model {
         this.timeEnd = timeEnd;
     }
 
-    public void setExaminationDate(GregorianCalendar examinationDate) {
+    public void setExaminationDate(String examinationDate) {
         this.examinationDate = examinationDate;
     }
 
@@ -45,11 +46,18 @@ public class Examination extends Model {
     public String name;
     public String points;
     public String grade;
+    // "CanRegister" "Registered" "Completed"
+    public String status;
 
-    public GregorianCalendar examinationDate;
-    public GregorianCalendar firstDateToRegister;
-    public GregorianCalendar lastDateToRegister;
+    public String examinationDate;
+    public String firstDateToRegister;
+    public String lastDateToRegister;
     public String timeStart;
     public String timeEnd;
     public String local;
+
+    // Logic
+    public void register() {
+        this.status = "Registered";
+    }
 }

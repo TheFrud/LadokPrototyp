@@ -12,10 +12,13 @@ GET         /login                    controllers.Application.loginPage(response
 #Actions
 POST        /login                    controllers.Application.login()
 GET         /logout                   controllers.Application.logout()
+POST        /changeStudentInformation controllers.Application.changeStudentInformation()
+POST        /registerForCourse        controllers.Application.registerForCourse()
+POST        /registerForExamination   controllers.Application.registerForExamination()
 
 # Administration
 # Navigation
-GET         /admin                    controllers.Administration.index()
+GET         /admin                    controllers.Administration.index(response: String)
 GET         /admin/student            controllers.Administration.student()
 GET         /admin/studier            controllers.Administration.studier()
 

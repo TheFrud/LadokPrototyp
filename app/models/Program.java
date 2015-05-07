@@ -1,15 +1,16 @@
 package models;
 
+import com.avaje.ebean.Ebean;
 import play.db.ebean.Model;
+import play.libs.F;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by Fredrik on 2015-05-04.
@@ -41,9 +42,42 @@ public class Program extends Model {
     public GregorianCalendar startDate;
     public GregorianCalendar endDate;
 
-    @OneToMany(cascade= CascadeType.ALL)
-    public List<Course> coursesCurrent = new ArrayList<Course>();
 
+    @OneToMany(cascade= CascadeType.ALL)
+    public List<Course> courses = new ArrayList<Course>();
+
+    // Till for-loopar i front end.
+    public List<Course> coursesCanRegister() {
+        List<Course> innerCanRegister = new ArrayList<>();
+        for(Course course: courses) {
+            if(course.status.equals("CanRegister")){
+                innerCanRegister.add(course);
+            }
+        }
+        return innerCanRegister;
+    }
+
+    public List<Course> coursesRegistered() {
+        List<Course> innerCoursesRegistered = new ArrayList<>();
+        for(Course course: courses) {
+            if(course.status.equals("Registered")){
+                innerCoursesRegistered.add(course);
+            }
+        }
+        return innerCoursesRegistered;
+    }
+
+    public List<Course> coursesCompleted() {
+        List<Course> innerCoursesCompleted = new ArrayList<>();
+        for(Course course: courses) {
+            if(course.status.equals("Completed")){
+                innerCoursesCompleted.add(course);
+            }
+        }
+        return innerCoursesCompleted;
+    }
+
+    /*
     @OneToMany(cascade= CascadeType.ALL)
     public List<Course> coursesCompleted = new ArrayList<Course>();
 
@@ -52,4 +86,6 @@ public class Program extends Model {
 
     @OneToMany(cascade= CascadeType.ALL)
     public List<Course> coursesCanRegister = new ArrayList<Course>();
+    */
+
 }

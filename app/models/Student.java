@@ -39,6 +39,19 @@ public class Student extends Model {
         return username + " (" + firstName + " " + surname + ")";
     }
 
+    public void changeStudentInformation(String username, String password, String ssn, String firstName, String surname, String co, String streetAdress, String zipcode, String city, String email){
+        this.username = username;
+        this.password = password;
+        this.ssn = ssn;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.co = co;
+        this.streetAdress = streetAdress;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.email = email;
+    }
+
     @OneToMany(cascade= CascadeType.ALL)
     public List<Program> programs  = new ArrayList<Program>();
 
@@ -54,4 +67,5 @@ public class Student extends Model {
     public static Student findByUsername(String username) {
         return find.where().eq("username", username.toLowerCase()).findUnique();
     }
+
 }
