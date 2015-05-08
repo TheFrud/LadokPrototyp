@@ -1,8 +1,10 @@
 package models;
 
+import controllers.EmailSender;
 import play.Logger;
 import play.db.ebean.Model;
 
+import javax.mail.MessagingException;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -127,3 +129,22 @@ public class Course extends Model{
         this.status = "Registered";
     }
 }
+
+
+// Den här metoden kan du använda för att skicka mejl. För att ropa på metoden kör du bara t.ex. "course.sendEmail();"
+
+/*--
+    public void sendEmail() throws MessagingException {
+
+        String inMail = mail;
+        int inSendControl = 1; //Sätt en 1:a om kontrollmejl ska skickas.
+        String inSubject = "Du är nu registrerad på kursen xxxx";
+        String inControlSubject = "Ny anmälan till + course.name ;
+        String inContent = " Hej bla bla bla"
+        String inControlContent = "Test bla bla";
+
+        EmailSender.start(inMail, inSendControl, inSubject, inControlSubject, inContent, inControlContent);
+    }
+
+    --*/
+

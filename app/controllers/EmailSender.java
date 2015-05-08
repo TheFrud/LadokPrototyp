@@ -1,6 +1,5 @@
 package controllers;
 
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -8,14 +7,20 @@ import java.util.Properties;
 
 public class EmailSender {
 
+    //String mail = dit mejlet ska skickas, dvs användarens mejl
+    //String sendControl = controlmejl som skickas till oss, jag har redan satt denna men du kan ändra den till din egen
+    //String subject = ämnesraden
+    //String content = innehåll i mejlet till användaren.
+    //String controlSubject = ämnesraden i controlmejlet
+    //String controlContent = innehåll i kontrollmejlet
     public static void start(String mail, int sendControl, String subject, String controlSubject, String content, String controlContent) {
 
         String to = mail;
-        String toControl = "anmalan@ssvendels.se";
+        String toControl = "magnus.inghardt@gmail.com";
 
-        String from = "anmalan@ssvendels.se";
-        final String username = "078a8966-c7ea-4deb-aa4d-d4f2d147d063";//change accordingly
-        final String password = "078a8966-c7ea-4deb-aa4d-d4f2d147d063";//change accordingly
+        String from = "ladokprototyp@inghardt.se";
+        final String username = "bbe2855f-0a6d-40d0-b2d3-d49ed0acbd293";
+        final String password = "bbe2855f-0a6d-40d0-b2d3-d49ed0acbd293";
 
         String host = "smtp.postmarkapp.com";
 
