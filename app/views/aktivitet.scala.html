@@ -1,6 +1,7 @@
 @(student: Student)
 
 <!-- Lista med nya händelser berörande en viss student -->
+
 <table class="table table-striped">
     <tr>
         <th>Datum</th>
@@ -8,6 +9,17 @@
 
 
     </tr>
+
+    @for(a <- student.activities){
+        <tr>
+            <td>@a.date</td>
+            <td>@a.text</td>
+        </tr>
+    }
+</table>
+
+<!--<table class="table table-striped">
+
 
     <tr>
         <td>2015-05-05</td>
@@ -23,6 +35,6 @@
     </tr>
 
 
-</table>
+</table>-->
 
 

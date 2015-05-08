@@ -1,5 +1,35 @@
 @(student: Student)
 
+<form action="" method="POST" role="form">
+    <legend>Form title</legend>
+
+    <div class="form-group">
+        <label for="">label</label>
+        <input type="text" class="form-control" class="inputs" id="studentnamn" placeholder="Input field" value="@student.username" disabled="">
+        <input type="text" class="form-control" class="inputs" id="studentfirstname" placeholder="Input field" value="@student.firstName" disabled="">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<button id="knappstudentnamn">Student username</button>
+<button id="knappstudentfornamn">Student förnamn</button>
+<script>
+            $("#knappstudentnamn").click(function(){
+                $(".inputs").prop('disabled', true);
+                $("#studentnamn").toggle("fast", function(){
+
+                });
+
+            })
+            $("#knappstudentfornamn").click(function(){
+                $(".inputs").prop('disabled', true);
+                $("#studentfirstname").toggle('disabled', false);
+
+            })
+
+ </script>
 
 <table class="table table-striped">
 
@@ -12,11 +42,6 @@
     <tr>
         <td><b>Mejl</b></td>
         <td>@student.email</td>
-    </tr>
-
-    <tr>
-        <td><b>Telefon</b></td>
-        <td>0702590167</td>
     </tr>
 
     <tr>
