@@ -1,4 +1,4 @@
-package controllers;
+/*-- package controllers;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -7,12 +7,6 @@ import java.util.Properties;
 
 public class EmailSender {
 
-    //String mail = dit mejlet ska skickas, dvs användarens mejl
-    //String sendControl = controlmejl som skickas till oss, jag har redan satt denna men du kan ändra den till din egen
-    //String subject = ämnesraden
-    //String content = innehåll i mejlet till användaren.
-    //String controlSubject = ämnesraden i controlmejlet
-    //String controlContent = innehåll i kontrollmejlet
     public static void start(String mail, int sendControl, String subject, String controlSubject, String content, String controlContent) {
 
         String to = mail;
@@ -74,3 +68,4 @@ public class EmailSender {
         }
     }
 }
+--*/
