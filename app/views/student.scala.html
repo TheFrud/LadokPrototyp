@@ -1,38 +1,6 @@
 @(student: Student)
 
-<form action="" method="POST" role="form">
-   <!-- <legend>Form title</legend>
-
-    <div class="form-group">
-        <label for="">label</label>
-        <input type="text" class="form-control" class="inputs" id="studentnamn" placeholder="Input field" value="@student.username" disabled="">
-        <input type="text" class="form-control" class="inputs" id="studentfirstname" placeholder="Input field" value="@student.firstName" disabled="">
-    </div>
-
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<button id="knappstudentnamn">Student username</button>
-<button id="knappstudentfornamn">Student förnamn</button>
-<script>
-            $("#knappstudentnamn").click(function(){
-                $(".inputs").prop('disabled', true);
-                $("#studentnamn").toggle("fast", function(){
-
-                });
-
-            })
-            $("#knappstudentfornamn").click(function(){
-                $(".inputs").prop('disabled', true);
-                $("#studentfirstname").toggle('disabled', false);
-
-            })
-
- </script>-->
-
 <table class="table table-striped">
-
 
     <tr>
         <td><b>Namn</b></td>
@@ -49,13 +17,11 @@
         <td>SMS</td>
     </tr>
 
-
-
 </table>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn btn-block" data-toggle="modal" data-target="#myModal">
-   Ändra inställningar
+    Ändra inställningar
 </button>
 
 <!-- Modal -->
@@ -69,53 +35,54 @@
             <div class="modal-body">
                 <table class="table table-striped">
 
-                    @helper.form(action = routes.Application.changeStudentInformation()) {
+                    <form action="@routes.Application.changeStudentInformation()" method="POST" class="form" role="form">
 
-                    <tr>
-                        <td><b>Namn</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="studentinformation" placeholder="Input field" value="@student.firstName @student.surname" disabled="">
-                        </td>
-                    </tr>
+                        <div class="form-group">
 
-                    <tr>
-                        <td><b>Personnummer</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="studentinformation" placeholder="Input field" value="@student.ssn" disabled="">
-                        </td>
-                    </tr>
+                            <tr>
+                                <td><b>Namn</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="firstName" id="studentinformation" placeholder="Input field" value="@student.firstName @student.surname" disabled="">
+                                </td>
+                            </tr>
 
-                    <tr>
-                        <td><b>Mejladress</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="email" placeholder="Input field" value="@student.email"></td>
-                    </tr>
+                            <tr>
+                                <td><b>Personnummer</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="ssn" id="studentinformation" placeholder="Input field" value="@student.ssn" disabled="">
+                                </td>
+                            </tr>
 
-                    <tr>
-                        <td><b>Postdress</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="streetAdress" placeholder="Input field" value="@student.streetAdress"></td>
-                    </tr>
+                            <tr>
+                                <td><b>Mejladress</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="email" id="email" placeholder="Input field" value="@student.email"></td>
+                            </tr>
 
-                    <tr>
-                        <td><b>C/o</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="co" placeholder="Fyll i" value="@student.co"></td>
-                    </tr>
+                            <tr>
+                                <td><b>Postdress</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="streetAdress" id="streetAdress" placeholder="Input field" value="@student.streetAdress"></td>
+                            </tr>
 
-                    <tr>
-                        <td><b>Postnummer</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="zipcode" placeholder="Input field" value="@student.zipcode"></td>
-                    </tr>
+                            <tr>
+                                <td><b>C/o</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="co" id="co" placeholder="Fyll i" value="@student.co"></td>
+                            </tr>
 
-                    <tr>
-                        <td><b>Postadress</b></td>
-                        <td><input type="text" class="form-control" class="inputs" id="city" placeholder="Input field" value="@student.city"></td>
-                    </tr>
+                            <tr>
+                                <td><b>Postnummer</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="zipcode" id="zipcode" placeholder="Input field" value="@student.zipcode"></td>
+                            </tr>
 
-
+                            <tr>
+                                <td><b>Postadress</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="city" id="city" placeholder="Input field" value="@student.city"></td>
+                            </tr>
 
                 </table>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
                 <button type="submit" class="btn btn-primary">Spara</button>
-                }
+                </form>
             </div>
         </div>
     </div>
