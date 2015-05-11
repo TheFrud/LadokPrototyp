@@ -1,7 +1,7 @@
 @(student: Student)
 
 <form action="" method="POST" role="form">
-    <legend>Form title</legend>
+   <!-- <legend>Form title</legend>
 
     <div class="form-group">
         <label for="">label</label>
@@ -29,7 +29,7 @@
 
             })
 
- </script>
+ </script>-->
 
 <table class="table table-striped">
 
@@ -69,25 +69,43 @@
             <div class="modal-body">
                 <table class="table table-striped">
 
+                    @helper.form(action = routes.Application.changeStudentInformation()) {
 
                     <tr>
                         <td><b>Namn</b></td>
-                        <td>@student.firstName</td>
+                        <td><input type="text" class="form-control" class="inputs" id="studentinformation" placeholder="Input field" value="@student.firstName @student.surname" disabled="">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Personnummer</b></td>
+                        <td><input type="text" class="form-control" class="inputs" id="studentinformation" placeholder="Input field" value="@student.ssn" disabled="">
+                        </td>
                     </tr>
 
                     <tr>
                         <td><b>Mejladress</b></td>
-                        <td>@student.email</td>
+                        <td><input type="text" class="form-control" class="inputs" id="email" placeholder="Input field" value="@student.email"></td>
                     </tr>
 
                     <tr>
-                        <td><b>Telefonnummer</b></td>
-                        <td>0702590167</td>
+                        <td><b>Postdress</b></td>
+                        <td><input type="text" class="form-control" class="inputs" id="streetAdress" placeholder="Input field" value="@student.streetAdress"></td>
                     </tr>
 
                     <tr>
-                        <td><b>Avisering</b></td>
-                        <td>SMS</td>
+                        <td><b>C/o</b></td>
+                        <td><input type="text" class="form-control" class="inputs" id="co" placeholder="Fyll i" value="@student.co"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Postnummer</b></td>
+                        <td><input type="text" class="form-control" class="inputs" id="zipcode" placeholder="Input field" value="@student.zipcode"></td>
+                    </tr>
+
+                    <tr>
+                        <td><b>Postadress</b></td>
+                        <td><input type="text" class="form-control" class="inputs" id="city" placeholder="Input field" value="@student.city"></td>
                     </tr>
 
 
@@ -96,7 +114,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-                <button type="button" class="btn btn-primary">Spara</button>
+                <button type="submit" class="btn btn-primary">Spara</button>
+                }
             </div>
         </div>
     </div>
