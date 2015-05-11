@@ -4,7 +4,7 @@
 
     <tr>
         <td><b>Namn</b></td>
-        <td>@student.firstName</td>
+        <td>@student.firstName @student.surname</td>
     </tr>
 
     <tr>
@@ -40,8 +40,14 @@
                         <div class="form-group">
 
                             <tr>
-                                <td><b>Namn</b></td>
-                                <td><input type="text" class="form-control" class="inputs" name="firstName" id="studentinformation" placeholder="Input field" value="@student.firstName @student.surname" disabled="">
+                                <td><b>Förnamn</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="firstName" id="studentinformation" placeholder="Input field" value="@student.firstName" disabled="">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><b>Efternamn</b></td>
+                                <td><input type="text" class="form-control" class="inputs" name="surname" id="surname" placeholder="Input field" value="@student.surname" disabled="">
                                 </td>
                             </tr>
 
@@ -57,7 +63,7 @@
                             </tr>
 
                             <tr>
-                                <td><b>Postdress</b></td>
+                                <td><b>Gatuadress</b></td>
                                 <td><input type="text" class="form-control" class="inputs" name="streetAdress" id="streetAdress" placeholder="Input field" value="@student.streetAdress"></td>
                             </tr>
 
@@ -75,6 +81,22 @@
                                 <td><b>Postadress</b></td>
                                 <td><input type="text" class="form-control" class="inputs" name="city" id="city" placeholder="Input field" value="@student.city"></td>
                             </tr>
+                            <tr>
+                                <td><b>Notifiera via mail</b></td>
+                                <td>
+                                    <select name ="notifyByEmail" id="input" class="form-control">
+                                        @if(student.notifyByEmail){
+                                            <option value="true" selected>Ja</option>
+                                            <option value="false">Nej</option>
+                                        } else {
+                                            <option value="true">Ja</option>
+                                            <option value="false" selected>Nej</option>
+                                        }
+
+                                    </select>
+                                </td>
+                            </tr>
+
 
                 </table>
 

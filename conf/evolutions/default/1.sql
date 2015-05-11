@@ -74,6 +74,7 @@ create table student (
   zipcode                   varchar(255),
   city                      varchar(255),
   email                     varchar(255),
+  notify_by_email           boolean,
   constraint pk_student primary key (id))
 ;
 

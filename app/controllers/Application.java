@@ -1,12 +1,18 @@
 package controllers;
 
 import com.avaje.ebean.Ebean;
+import forms.ChangeStudentInfoForm;
+import models.Activity;
 import models.Course;
 import models.Examination;
 import models.Student;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
+
+import play.libs.mailer.Email;
+import play.libs.mailer.MailerPlugin;
+
 
 import views.html.*;
 
@@ -56,27 +62,41 @@ public class Application extends Controller {
     // Change student information
     // I front end på alla inputs: Attributet "name"= fälten i domänobjektet (username, osv)
     public static Result changeStudentInformation() {
-        Student student = Form.form(Student.class).bindFromRequest().get();
+        ChangeStudentInfoForm changeStudentInfoForm = Form.form(ChangeStudentInfoForm.class).bindFromRequest().get();
         String loggedInUser = session().get("loggedIn");
         try{
             if(!Student.findByUsername(loggedInUser).equals(null)){
                 Student studentToChange = Student.findByUsername(loggedInUser);
-                // String username, String password, String ssn, String firstName, String surname, String co, String streetAdress, String zipcode, String city, String email
+                // String co, String streetAdress, String zipcode, String city, String email
                 studentToChange.changeStudentInformation(
-                        student.username,
-                        student.password,
-                        student.ssn,
-                        student.firstName,
-                        student.surname,
-                        student.co,
-                        student.streetAdress,
-                        student.zipcode,
-                        student.city,
-                        student.email
+                        changeStudentInfoForm.co,
+                        changeStudentInfoForm.streetAdress,
+                        changeStudentInfoForm.zipcode,
+                        changeStudentInfoForm.city,
+                        changeStudentInfoForm.email,
+                        changeStudentInfoForm.notifyByEmail
                 );
+                Activity activity = new Activity("Dina uppgifter har uppdaterats.");
+                studentToChange.activities.add(activity);
                 studentToChange.save();
                 session().put("loggedIn", studentToChange.username);
                 Logger.info("Studentinformation ändrad.");
+
+
+                if(studentToChange.notifyByEmail){
+                    // Mail
+                    Email mail = new Email();
+                    mail.setSubject("Ladok 2.0 - Uppgifter uppdaterade!");
+                    mail.setFrom("Ladok 2.0 <devjungler@gmail.com>");
+                    mail.addTo("TO <"+studentToChange.email+">");
+                    // sends text, HTML or both...
+                    mail.setBodyText("A text message");
+                    mail.setBodyHtml(
+                            "<html><body><h3>"+activity.text+"</h3></body></html>");
+                    MailerPlugin.send(mail);
+                }
+
+
             }
         }
         catch(Exception e) {

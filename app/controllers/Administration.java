@@ -3,6 +3,8 @@ package controllers;
 import models.*;
 import play.*;
 import play.data.Form;
+import play.libs.mailer.Email;
+import play.libs.mailer.MailerPlugin;
 import play.mvc.*;
 
 import views.html.*;
@@ -55,9 +57,28 @@ public class Administration extends Controller{
         catch(Exception e) {}
 
         initiateStudentPrograms(student);
-        student.activities.add(new Activity("Studentkonto skapat!"));
-        student.activities.add(new Activity("Registrerades på programmet Systemvetenskap"));
+
+        Activity activity1 = new Activity("Studentkonto skapat!");
+        Activity activity2 = new Activity("Registrerades på programmet Systemvetenskap.");
+
+        student.activities.add(activity1);
+        student.activities.add(activity2);
         student.save();
+
+        if(student.notifyByEmail) {
+            // Mail
+            Email mail = new Email();
+            mail.setSubject("Ladok 2.0 - Välkommen!");
+            mail.setFrom("Ladok 2.0 <devjungler@gmail.com>");
+            mail.addTo("TO <" + student.email + ">");
+            // sends text, HTML or both...
+            mail.setBodyText("A text message");
+            mail.setBodyHtml(
+                    "<html><body>" +
+                            "<h3>" + activity1.text + "</h3><h4>" + activity2.text + "</h4>" +
+                            "</body></html>");
+            MailerPlugin.send(mail);
+        }
         return redirect(controllers.routes.Administration.index("Studenten skapad. Gratulerar!"));
     }
 

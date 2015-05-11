@@ -20,10 +20,8 @@ public class Student extends Model {
     @Id
     public long id;
 
-    @Constraints.Required
     public String username;
 
-    @Constraints.Required
     public String password;
 
     public String ssn;
@@ -35,8 +33,19 @@ public class Student extends Model {
     public String city;
     public String email;
 
+    public boolean notifyByEmail = true;
+
     public String toString(){
         return username + " (" + firstName + " " + surname + ")";
+    }
+
+    public void changeStudentInformation(String co, String streetAdress, String zipcode, String city, String email, boolean notifyByEmail){
+        this.co = co;
+        this.streetAdress = streetAdress;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.email = email;
+        this.notifyByEmail = notifyByEmail;
     }
 
     public void changeStudentInformation(String username, String password, String ssn, String firstName, String surname, String co, String streetAdress, String zipcode, String city, String email){
