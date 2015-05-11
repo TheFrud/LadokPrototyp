@@ -76,7 +76,7 @@ public class Application extends Controller {
                         changeStudentInfoForm.email,
                         changeStudentInfoForm.notifyByEmail
                 );
-                Activity activity = new Activity("Dina uppgifter har uppdaterats.");
+                Activity activity = new Activity("Du har uppdaterat dina uppgifter");
                 studentToChange.activities.add(activity);
                 studentToChange.save();
                 session().put("loggedIn", studentToChange.username);
