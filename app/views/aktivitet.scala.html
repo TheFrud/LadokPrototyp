@@ -3,6 +3,22 @@
 
 <!-- Lista med nya händelser berörande en viss student -->
 
+<table class="table table-striped">
+
+    <tr>
+        <th>Datum</th>
+        <th>Aktivitet</th>
+    </tr>
+
+
+    <tr class="warning">
+        <td>Imorgon</td>
+        <td>Tenta i hemkunskap</td>
+    </tr>
+
+</table>
+
+
 
 <table class="table table-striped">
 
@@ -13,7 +29,7 @@
     </tr>
 
 
-    @for(a <- student.activities) {
+    @for(a <- student.getThreeActivities) {
         <tr>
             <td>@a.date</td>
             <td>@a.text</td>

@@ -60,4 +60,8 @@ public class Examination extends Model {
     public void register() {
         this.status = "Registered";
     }
+
+    public void deregister(){
+        this.status = "CanRegister";
+    }
 }

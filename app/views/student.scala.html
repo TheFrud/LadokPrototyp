@@ -18,7 +18,7 @@
         @if(student.notifyByEmail){
             Ja
         } else {
-        Nej
+            Nej
         }
         </td>
     </tr>
@@ -91,13 +91,13 @@
                                 <td><b>Notifiera via mail</b></td>
                                 <td>
                                     <select name ="notifyByEmail" id="input" class="form-control">
-                                        @if(student.notifyByEmail){
-                                            <option value="true" selected>Ja</option>
-                                            <option value="false">Nej</option>
-                                        } else {
-                                            <option value="true">Ja</option>
-                                            <option value="false" selected>Nej</option>
-                                        }
+                                    @if(student.notifyByEmail){
+                                        <option value="true" selected>Ja</option>
+                                        <option value="false">Nej</option>
+                                    } else {
+                                        <option value="true">Ja</option>
+                                        <option value="false" selected>Nej</option>
+                                    }
 
                                     </select>
                                 </td>
@@ -106,16 +106,32 @@
 
                 </table>
                 <div class="alert alert-warning" role="alert">
-                Kontakta studieadministrationen för ändring av namn och/eller personnummer
-                    </div>
+                    Kontakta studieadministrationen för ändring av namn och/eller personnummer
+                </div>
+
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-                <button type="submit" class="btn btn-primary">Spara</button>
+                <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
                 </form>
+
+
+
+
+
+
             </div>
         </div>
     </div>
 </div>
 
+<script>
+$(document).ready(function(){
+
+$('#myButton').on('click', function () {
+$("#myButton").html('Sparar...');
+})
+
+});
+</script>
