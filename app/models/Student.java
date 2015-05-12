@@ -67,6 +67,29 @@ public class Student extends Model {
     @OneToMany(cascade= CascadeType.ALL)
     public List<Activity> activities = new ArrayList<Activity>();
 
+    // Hämta alla aktiviteter
+    public List<Activity> getAllActivities() {
+        List<Activity> innerAllActivities = new ArrayList<>();
+        for(Activity activity: activities) {
+            innerAllActivities.add(activity);
+        }
+        return innerAllActivities;
+    }
+
+    // Hämta 3 aktiviteter
+    public List<Activity> getThreeActivities() {
+        List<Activity> innerThreeActivities = new ArrayList<>();
+        for(Activity activity: activities) {
+            if(innerThreeActivities.size() == 3){
+                return innerThreeActivities;
+            }
+            innerThreeActivities.add(activity);
+        }
+        return innerThreeActivities;
+    }
+
+
+
     public static Finder<Long, Student> find = new Finder<Long, Student>(Long.class, Student.class);
 
     public static Student findByUsernameAndPassword(String username, String password) {
