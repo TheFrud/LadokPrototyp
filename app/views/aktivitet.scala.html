@@ -1,40 +1,25 @@
 @(student: Student)
 
+
 <!-- Lista med nya händelser berörande en viss student -->
 
+
 <table class="table table-striped">
+
+
     <tr>
         <th>Datum</th>
         <th>Aktivitet</th>
-
-
     </tr>
 
-    @for(a <- student.activities){
+
+    @for(a <- student.activities) {
         <tr>
             <td>@a.date</td>
             <td>@a.text</td>
         </tr>
+
     }
 </table>
-
-<!--<table class="table table-striped">
-
-
-    <tr>
-        <td>2015-05-05</td>
-        <td>Nytt resultat</td>
-    </tr>
-    <tr>
-        <td>2015-04-30</td>
-        <td>Nytt tentaresultat</td>
-    </tr>
-    <tr>
-        <td>2013-08-25</td>
-        <td>Registrerades på programmet Systemvetenskap</td>
-    </tr>
-
-
-</table>-->
 
 
