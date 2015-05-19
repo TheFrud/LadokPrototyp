@@ -43,6 +43,7 @@ create table examination (
   points                    varchar(255),
   grade                     varchar(255),
   status                    varchar(255),
+  grade_status              varchar(255),
   examination_date          varchar(255),
   first_date_to_register    varchar(255),
   last_date_to_register     varchar(255),

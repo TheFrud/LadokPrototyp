@@ -83,8 +83,8 @@
                                                         <input type="hidden" name="id" value="@course.id"></input>
 
                                                         <br>
-                                                        <button type="submit" id="myButton" data-loading-text="Sparar..." class="btn btn-success btn-xs" autocomplete="off">
-                                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Avregistrera</button>
+                                                        <button type="submit" id="myButton" data-loading-text="Sparar..." class="btn btn-danger btn-xs" autocomplete="off">
+                                                            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Avregistrera</button>
 
                                                             <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                                             &nbsp Anm&aumll</a href=""></td>-->
@@ -188,16 +188,12 @@
                                                     <b>Slutdatum:</b><br> @course.endDate<br><br>
                                                     <b>Betyg</b><br>
                                                     @for(examinationCompleted <- course.examinationsCompleted()){
-                                                        @examinationCompleted.name | @examinationCompleted.grade <br>
+                                                        @examinationCompleted.name |<b> @examinationCompleted.grade</b> <br>
                                                     }
                                                     @for(assignmentCompleted <- course.assignments) {
-                                                        @assignmentCompleted.name | @assignmentCompleted.grade <br>
+                                                        @assignmentCompleted.name |<b> @assignmentCompleted.grade</b> <br>
                                                     }
 
-
-                                                    Gruppuppgift 1: VG<br>
-                                                    Gruppuppgift 2: VG<br>
-                                                    Tentamen: VG
                                                 </div>
                                             </div>
                                         </td>
@@ -229,7 +225,7 @@
                         <h4>Tentamen du &aumlr anm&aumlld till</h4>
                         <table class="table table-striped">
                             <tr>
-                                <th>Tentamen</th>
+                                <th>Namn</th>
                                 <th>Datum & tid</th>
 
                             </tr>
@@ -250,9 +246,10 @@
 
                                                             <form action="@routes.Application.deregisterForExamination()" method="POST" class="form" role="form">
                                                                 <input type="hidden" name="id" value="@examination.id"></input>
+                                                                <br>
 
-                                                                <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Avanm&aumll från tentaj&aumlveln</button>
-
+                                                                <button type="submit" id="myButton" data-loading-text="Sparar..." class="btn btn-danger btn-xs" autocomplete="off">
+                                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Avanm&aumll</button>
                                                                     <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                                             &nbsp Anm&aumll</a href=""></td>-->
                                                             </form>
@@ -281,10 +278,12 @@
                         <legend></legend>
 
                             <!-- DU KAN ANMALA DIG TILL -->
+
                         <h4>Tentamen du kan anm&aumlla dig till</h4>
+
                         <table class="table table-striped">
                             <tr>
-                                <th>Tenta</th>
+                                <th>Namn</th>
                                 <th></th>
 
                             </tr>
@@ -320,7 +319,8 @@
                                                     <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
                                                         <input type="hidden" name="id" value="@examination.id"></input>
 
-                                                        <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+                                                        <button type="submit" id="myButton" data-loading-text="Sparar..." class="btn btn-success btn-xs" autocomplete="off">
+                                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Anm&aumll</button>
 
                                                             <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                                             &nbsp Anm&aumll</a href=""></td>-->
@@ -340,7 +340,7 @@
                         <h4>Genomf&oumlrda tentamen</h4>
                         <table class="table table-striped">
                             <tr>
-                                <th>Tentamen</th>
+                                <th>Namn</th>
                                 <th>Betyg</th>
 
 
@@ -392,7 +392,7 @@
 
                             <!-- Button trigger modal -->
                         <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModalOne">
-                            Studieintyg
+                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Studieintyg
                         </button>
 
                             <!-- Modal -->
@@ -407,10 +407,31 @@
 
                                         Vilket intyg villl du skapa?
 
+                                        <legend></legend>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                                    Resultatintyg
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                                    Registreringsintyg
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                                    Nationellt intyg
+                                                </label>
+                                            </div>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <button type="button" class="btn btn-primary">Skapa intyg</button>
+                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-primary">Skapa intyg</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -419,7 +440,7 @@
                         <br>
                             <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModalTwo">
-                            Examensans&oumlkan
+                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Examensans&oumlkan
                         </button>
 
                             <!-- Modal -->
@@ -433,11 +454,23 @@
                                     <div class="modal-body">
 
                                         Ans&oumlk om examen - vilka kurser vill du inkludera?
+                                        <legend></legend>
+
+                                            @for(program <- student.programs){
+                                                @for(course <- program.coursesCompleted()) {
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" value="">
+                                                            @course.name @course.points hp
+                                                        </label>
+                                                    </div>
+                                                }
+                                                }
 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <button type="button" class="btn btn-primary">Spara</button>
+                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-primary">Skicka examensans&oumlkan</a>
                                     </div>
                                 </div>
                             </div>
@@ -445,7 +478,7 @@
                         <br>
                             <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#myModalThree">
-                            Avbryt studier
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Avbryt studier
                         </button>
 
                             <!-- Modal -->
@@ -457,13 +490,27 @@
                                         <h4 class="modal-title" id="myModalLabel">Avsluta studier</h4>
                                     </div>
                                     <div class="modal-body">
+                                        &Aumlr du s&aumlker p&aring att du vill avsluta dina studier? Du kommer avregistreras fr&aringn programmet Systemvetenskap samt de aktuella kurser du just nu l&aumlser och som &aumlr
+                                        knutna till programmet.<br><br>
 
-                                        Vad vill du avsluta?
+
+                                            <div class="alert alert-warning" role="alert">
+                                                Studieadministrationen kommer kontakta dig p&aring din mejladress <b>@student.email</b> f&oumlr att bekr&aumlfta att du vill avbryta dina studier.
+                                                    Observera att eventuellt st&oumld fr&aringn CSN kan komma att p&aringverkas.
+                                            </div>
+
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                                    Ja jag &aumlr s&aumlker!
+                                                </label>
+                                            </div>
+
 
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <button type="button" class="btn btn-primary">Spara</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">St&aumlng</button>
+                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-danger">Skicka!</a>
                                     </div>
                                 </div>
                             </div>
