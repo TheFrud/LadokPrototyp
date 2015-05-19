@@ -40,16 +40,23 @@ public class Application extends Controller {
     // Actions
     public static Result login() {
         Student student = Form.form(Student.class).bindFromRequest().get();
+        String failureTitle = "Gick ej att logga in!";
+        String failure = "Fel användarnamn eller lösenord.";
+
         try{
             if(!Student.findByUsernameAndPassword(student.username, student.password).equals(null)){
                 session("loggedIn", student.username);
                 return redirect(controllers.routes.Application.index());
             }
-            return redirect(controllers.routes.Application.loginPage("Fel användarnamn eller lösenord."));
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
+            return redirect(controllers.routes.Application.loginPage(failure));
         }
         catch(Exception e){
             Logger.info(e.getMessage());
-            return redirect(controllers.routes.Application.loginPage("Fel användarnamn eller lösenord."));
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
+            return redirect(controllers.routes.Application.loginPage(failure));
         }
 
     }
@@ -63,10 +70,16 @@ public class Application extends Controller {
     // I front end på alla inputs: Attributet "name"= fälten i domänobjektet (username, osv)
     public static Result changeStudentInformation() {
         ChangeStudentInfoForm changeStudentInfoForm = Form.form(ChangeStudentInfoForm.class).bindFromRequest().get();
+        String successTitle = "Uppdaterat!";
+        String success = "Du har nu uppdaterat dina användaruppgifter.";
+        String failureTitle = "Fel!";
+        String failure = "Det gick inte att uppdatera dina användaruppgifter.";
+
         String loggedInUser = session().get("loggedIn");
         try{
             if(!Student.findByUsername(loggedInUser).equals(null)){
                 Student studentToChange = Student.findByUsername(loggedInUser);
+
                 // String co, String streetAdress, String zipcode, String city, String email
                 studentToChange.changeStudentInformation(
                         changeStudentInfoForm.co,
@@ -96,11 +109,16 @@ public class Application extends Controller {
                     MailerPlugin.send(mail);
                 }
 
+                flash("successTitle", successTitle);
+                flash("success", success);
+
 
             }
         }
         catch(Exception e) {
             Logger.info(e.getMessage());
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
 
         }
         return redirect(controllers.routes.Application.index());
@@ -122,7 +140,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har registrerat dig på kurs " + courseToChange.name);
+                Activity activity = new Activity("Du har registrerat dig till kurs " + courseToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
@@ -130,7 +148,7 @@ public class Application extends Controller {
                 if (studentToChange.notifyByEmail) {
                     // Mail
                     Email mail = new Email();
-                    mail.setSubject("Ladok 2.0 - Registrerad på kurs!");
+                    mail.setSubject("Ladok 2.0 - Registrerad till kurs!");
                     mail.setFrom("Ladok 2.0 <devjungler@gmail.com>");
                     mail.addTo("TO <" + studentToChange.email + ">");
                     // sends text, HTML or both...
@@ -139,11 +157,21 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
+                String successTitle = "Registrerad!";
+                String success = "Du har nu registrerat dig till kurs " + courseToChange.name + "!";
+
+                flash("successTitle", successTitle);
+                flash("success", success);
 
 
             }
         } catch (Exception e) {
             Logger.info(e.getMessage());
+            String failureTitle = "Kunde ej registrera!";
+            String failure = "Det gick inte att registrera dig till kurs " + courseToChange.name + ".";
+
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
 
         }
 
@@ -179,11 +207,18 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
-
+                String successTitle = "Avregistrerad!";
+                String success = "Du har nu avregistrerat dig från kursen " + courseToChange.name + "!";
+                flash("successTitle", successTitle);
+                flash("success", success);
 
             }
         } catch (Exception e) {
             Logger.info(e.getMessage());
+            String failureTitle = "Kunde ej avregistrera!";
+            String failure = "Det gick inte att avregistrera dig från kurs " + courseToChange.name + ".";
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
 
         }
 
@@ -207,7 +242,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har registrerat dig på tentamen " + examinationToChange.name);
+                Activity activity = new Activity("Du har anmält dig till tentamen " + examinationToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
@@ -215,7 +250,7 @@ public class Application extends Controller {
                 if (studentToChange.notifyByEmail) {
                     // Mail
                     Email mail = new Email();
-                    mail.setSubject("Ladok 2.0 - Registrerad på tentamen!");
+                    mail.setSubject("Ladok 2.0 - Anmäld till tentamen!");
                     mail.setFrom("Ladok 2.0 <devjungler@gmail.com>");
                     mail.addTo("TO <" + studentToChange.email + ">");
                     // sends text, HTML or both...
@@ -224,12 +259,18 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
-
+                String successTitle = "Anmäld!";
+                String success = "Du har nu anmält dig till tentamen " + examinationToChange.name + "!";
+                flash("successTitle", successTitle);
+                flash("success", success);
 
             }
         } catch (Exception e) {
             Logger.info(e.getMessage());
-
+            String failureTitle = "Kunde ej anmäla!";
+            String failure = "Det gick inte att anmäla dig till tentamen " + examinationToChange.name + ".";
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
         }
 
 
@@ -247,7 +288,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har avregistrerat från tentamen " + examinationToChange.name);
+                Activity activity = new Activity("Du har avanmält dig från tentamen " + examinationToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
@@ -255,7 +296,7 @@ public class Application extends Controller {
                 if (studentToChange.notifyByEmail) {
                     // Mail
                     Email mail = new Email();
-                    mail.setSubject("Ladok 2.0 - Avregistrerad från tentamen!");
+                    mail.setSubject("Ladok 2.0 - Avanmäld från tentamen!");
                     mail.setFrom("Ladok 2.0 <devjungler@gmail.com>");
                     mail.addTo("TO <" + studentToChange.email + ">");
                     // sends text, HTML or both...
@@ -264,12 +305,18 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
-
+                String successTitle = "Avanmäld!";
+                String success = "Du har nu avavanmält dig från tentamen " + examinationToChange.name + "!";
+                flash("successTitle", successTitle);
+                flash("success", success);
 
             }
         } catch (Exception e) {
             Logger.info(e.getMessage());
-
+            String failureTitle = "Kunde ej avanmäla!";
+            String failure = "Det gick inte att avanmäla dig från tentamen " + examinationToChange.name + ".";
+            flash("failureTitle", failureTitle);
+            flash("failure", failure);
         }
 
 

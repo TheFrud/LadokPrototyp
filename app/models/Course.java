@@ -99,6 +99,8 @@ public class Course extends Model{
         return innerExaminationsCompleted;
     }
 
+
+
     @OneToMany(cascade= CascadeType.ALL)
     public List<Examination> examinations  = new ArrayList<Examination>();
 
