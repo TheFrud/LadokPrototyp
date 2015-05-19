@@ -43,11 +43,16 @@ public class Examination extends Model {
         this.local = local;
     }
 
+    public void setGradeStatus(String gradeStatus) {
+        this.gradeStatus = gradeStatus;
+    }
+
     public String name;
     public String points;
     public String grade;
     // "CanRegister" "Registered" "Completed"
     public String status;
+    public String gradeStatus;
 
     public String examinationDate;
     public String firstDateToRegister;

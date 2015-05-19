@@ -33,6 +33,9 @@ public class Application extends Controller {
         return ok(readme.render());
     }
 
+    public static Result ejRealiserad(){
+        return ok(ejRealiserad.render());
+    }
 
     public static Result loginPage (String response) {
         return ok(login.render(response));

@@ -248,6 +248,16 @@
                                                     <div class="well-default">
                                                         Lokal ansl&arings i hus Saga klockan 8.00
 
+                                                            <form action="@routes.Application.deregisterForExamination()" method="POST" class="form" role="form">
+                                                                <input type="hidden" name="id" value="@examination.id"></input>
+
+                                                                <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Avanm&aumll från tentaj&aumlveln</button>
+
+                                                                    <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                            &nbsp Anm&aumll</a href=""></td>-->
+                                                            </form>
+
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -280,38 +290,43 @@
                             </tr>
 
                             @for(program <- student.programs) {
+                                @*
                                 @for(course <- program.coursesCanRegister()) {
-                                    @for(examination <- course.examinationsCanRegister())   {
-                                        <tr class="warning">
-                                            <td>@examination.name</td>
-                                            <td>
-                                                <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
-                                                    <input type="hidden" name="id" value="@examination.id"></input>
+                                @for(examination <- course.examinationsCanRegister())   {
+                                <tr class="warning">
+                                <td>@examination.name</td>
+                                <td>
+                                <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
+                                <input type="hidden" name="id" value="@examination.id"></input>
 
-                                                    <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+                                <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
 
-                                                        <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                                            &nbsp Anm&aumll</a href=""></td>-->
-                                                </form>
-                                        </tr>
-                                    }
+                                <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                &nbsp Anm&aumll</a href=""></td>-->
+                                </form>
+                                </tr>
+                                }
 
 
                                 }
+                                *@
+                                @if(program.coursesRegistered().size > 0){
                                 @for(course <- program.coursesRegistered()) {
-                                    @for(examination <- course.examinationsCanRegister())   {
-                                        <tr class="warning">
-                                            <td>@examination.name</td>
-                                            <td>
-                                                <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
-                                                    <input type="hidden" name="id" value="@examination.id"></input>
 
-                                                    <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+                                        @for(examination <- course.examinationsCanRegister())   {
+                                            <tr class="warning">
+                                                <td>@examination.name</td>
+                                                <td>
+                                                    <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
+                                                        <input type="hidden" name="id" value="@examination.id"></input>
 
-                                                        <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                                        <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+
+                                                            <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                                             &nbsp Anm&aumll</a href=""></td>-->
-                                                </form>
-                                        </tr>
+                                                    </form>
+                                            </tr>
+                                        }
                                     }
                                 }
                             }

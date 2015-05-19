@@ -93,6 +93,14 @@ public class Administration extends Controller{
         examinationCompleted.setTimeStartAndEnd("09.00", "13.00");
         examinationCompleted.setExaminationDate("2013-10-01");
         examinationCompleted.setLocal("Hus Saga (3a)");
+        examinationCompleted.setGradeStatus("inväntar");
+
+        Examination examinationCompleted2 = new Examination("Informationsteknologi och informationssystem", "4.5", "VG", "Completed");
+        examinationCompleted2.setRegisterDate("2013-09-02","2013-09-23");
+        examinationCompleted2.setTimeStartAndEnd("09.00", "13.00");
+        examinationCompleted2.setExaminationDate("2013-10-01");
+        examinationCompleted2.setLocal("Hus Saga (3a)");
+        examinationCompleted2.setGradeStatus("betygsatt");
 
         Examination examinationRegistered = new Examination("Verksamheter och information", "7.5", "", "Registered");
         examinationRegistered.setRegisterDate("2013-10-10", "2013-10-29");
