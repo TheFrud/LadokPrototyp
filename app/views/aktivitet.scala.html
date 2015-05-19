@@ -6,19 +6,16 @@
 <table class="table table-striped">
 
 
-    <tr class="warning">
+    <tr>
         <th>Datum</th>
         <th>Aktivitet</th>
     </tr>
-
 
     @for(a <- student.getThreeActivities) {
         <tr>
             <td>@a.date</td>
             <td>@a.text</td>
         </tr>
-
     }
 </table>
-
 

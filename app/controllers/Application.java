@@ -246,7 +246,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har anmält dig till tentamen " + examinationToChange.name);
+                Activity activity = new Activity("Du har anmält dig till " + examinationToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
@@ -264,7 +264,7 @@ public class Application extends Controller {
                     MailerPlugin.send(mail);
                 }
                 String successTitle = "Anmäld!";
-                String success = "Du har nu anmält dig till tentamen " + examinationToChange.name + "!";
+                String success = "Du har nu anmält dig till " + examinationToChange.name + "!";
                 flash("successTitle", successTitle);
                 flash("success", success);
 
@@ -292,7 +292,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har avanmält dig från tentamen " + examinationToChange.name);
+                Activity activity = new Activity("Du har avanmält dig från " + examinationToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
@@ -310,7 +310,7 @@ public class Application extends Controller {
                     MailerPlugin.send(mail);
                 }
                 String successTitle = "Avanmäld!";
-                String success = "Du har nu avavanmält dig från tentamen " + examinationToChange.name + "!";
+                String success = "Du har nu avavanmält dig från " + examinationToChange.name + "!";
                 flash("successTitle", successTitle);
                 flash("success", success);
 
@@ -318,7 +318,7 @@ public class Application extends Controller {
         } catch (Exception e) {
             Logger.info(e.getMessage());
             String failureTitle = "Kunde ej avanmäla!";
-            String failure = "Det gick inte att avanmäla dig från tentamen " + examinationToChange.name + ".";
+            String failure = "Det gick inte att avanmäla dig från " + examinationToChange.name + ".";
             flash("failureTitle", failureTitle);
             flash("failure", failure);
         }

@@ -88,27 +88,25 @@ public class Administration extends Controller{
 
         // Initiera examinationer
         // name points grade status
-        Examination examinationCompleted = new Examination("Informationsteknologi och informationssystem", "4.5", "VG", "Completed");
+        Examination examinationCompleted = new Examination("Beslutstödsystem Tentamen", "4.5", "VG", "Completed");
         examinationCompleted.setRegisterDate("2013-09-02","2013-09-23");
         examinationCompleted.setTimeStartAndEnd("09.00", "13.00");
         examinationCompleted.setExaminationDate("2013-10-01");
         examinationCompleted.setLocal("Hus Saga (3a)");
-        examinationCompleted.setGradeStatus("inväntar");
 
-        Examination examinationCompleted2 = new Examination("Informationsteknologi och informationssystem", "4.5", "VG", "Completed");
-        examinationCompleted2.setRegisterDate("2013-09-02","2013-09-23");
-        examinationCompleted2.setTimeStartAndEnd("09.00", "13.00");
-        examinationCompleted2.setExaminationDate("2013-10-01");
-        examinationCompleted2.setLocal("Hus Saga (3a)");
-        examinationCompleted2.setGradeStatus("betygsatt");
-
-        Examination examinationRegistered = new Examination("Verksamheter och information", "7.5", "", "Registered");
+       /*-- Examination examinationRegistered = new Examination("Interaktionsdesign", "7.5", "", "Registered");
         examinationRegistered.setRegisterDate("2013-10-10", "2013-10-29");
         examinationRegistered.setTimeStartAndEnd("09.00", "13.00");
         examinationRegistered.setExaminationDate("2013-01-01");
-        examinationRegistered.setLocal("Hus Saga (3c)");
+        examinationRegistered.setLocal("Hus Saga (3c)");--*/
 
-        Examination examinationCanRegister = new Examination("Programmeringsteknik och databaser", "7.5", "", "CanRegister");
+        Examination examinationCanRegister1 = new Examination("Interaktionsdesign Tentamen", "7.5", "", "CanRegister");
+        examinationCanRegister1.setRegisterDate("2014-03-01", "2013-03-18");
+        examinationCanRegister1.setTimeStartAndEnd("09.00", "13.00");
+        examinationCanRegister1.setExaminationDate("2014-04-05");
+        examinationCanRegister1.setLocal("Hus Saga (3b)");
+
+        Examination examinationCanRegister = new Examination("Företagsekonomi Tentamen", "7.5", "", "CanRegister");
         examinationCanRegister.setRegisterDate("2014-03-01", "2013-03-18");
         examinationCanRegister.setTimeStartAndEnd("09.00", "13.00");
         examinationCanRegister.setExaminationDate("2014-04-05");
@@ -125,20 +123,21 @@ public class Administration extends Controller{
 
         // Initiera kurser
         // String name, String code, String points, String rate, String grade
-        Course courseCompleted = new Course("Informationsteknologi och informationssystem", "TIG015", "15", "100", "Completed", "G");
+        Course courseCompleted = new Course("Beslutstödsystem", "TIG015", "15", "100", "Completed", "G");
         courseCompleted.setRegisterDate("2013-08-01", "2013-08-20");
         courseCompleted.setStartAndEndDate("2013-08-29", "2013-10-25");
         courseCompleted.examinations.add(examinationCompleted);
         courseCompleted.assignments.add(assignmentTig015_1);
         courseCompleted.assignments.add(assignmentTig015_2);
 
-        Course courseRegistered = new Course("Verksamheter och information", "TIG016", "15", "100", "Registered", "");
+        Course courseRegistered = new Course("Interaktionsdesign", "TIG016", "15", "100", "Registered", "");
         courseRegistered.setRegisterDate("2013-09-01","2013-09-15");
         courseRegistered.setStartAndEndDate("2013-09-29","2014-01-11");
-        courseRegistered.examinations.add(examinationRegistered);
+        //courseRegistered.examinations.add(examinationRegistered);
+        courseRegistered.examinations.add(examinationCanRegister1);
         courseRegistered.assignments.add(assignmentTig016_1);
 
-        Course courseCanRegister = new Course("Programmeringsteknik och databaser", "TIG058", "15", "100", "CanRegister", "");
+        Course courseCanRegister = new Course("Företagsekonomi", "TIG058", "15", "100", "CanRegister", "");
         courseCanRegister.setRegisterDate("2014-01-01" , "2014-01-15");
         courseCanRegister.setStartAndEndDate("2014-01-25", "2014-03-29");
         courseCanRegister.examinations.add(examinationCanRegister);

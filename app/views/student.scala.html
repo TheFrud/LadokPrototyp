@@ -27,7 +27,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn btn-block" data-toggle="modal" data-target="#myModal">
-    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> &nbspÄndra uppgifter & inställningar
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> &nbspÄndra uppgifter
 </button>
 
 <!-- Modal -->
@@ -36,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title" id="myModalLabel">Ändra uppgifter & inställningar</h3>
+                <h3 class="modal-title" id="myModalLabel">Ändra uppgifter</h3>
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
@@ -65,27 +65,27 @@
 
                             <tr>
                                 <td><b>Mejladress</b></td>
-                                <td><input type="email" class="form-control" class="inputs" name="email" id="email" placeholder="Input field" value="@student.email"></td>
+                                <td><input type="email" class="form-control" class="inputs" name="email" id="email" placeholder="Input field" value="@student.email" maxlength="40" required></td>
                             </tr>
 
                             <tr>
                                 <td><b>Gatuadress</b></td>
-                                <td><input type="text" class="form-control" class="inputs" name="streetAdress" id="streetAdress" placeholder="Input field" value="@student.streetAdress"></td>
+                                <td><input type="text" class="form-control" class="inputs" name="streetAdress" id="streetAdress" placeholder="Input field" value="@student.streetAdress" maxlength="40" required></td>
                             </tr>
 
                             <tr>
                                 <td><b>C/o</b></td>
-                                <td><input type="text" class="form-control" class="inputs" name="co" id="co" placeholder="Fyll i" value="@student.co"></td>
+                                <td><input type="text" class="form-control" class="inputs" name="co" id="co" placeholder="Fyll i (frivilligt)" value="@student.co" maxlength="40"></td>
                             </tr>
 
                             <tr>
                                 <td><b>Postnummer</b></td>
-                                <td><input type="text" class="form-control" class="inputs" name="zipcode" id="zipcode" placeholder="Input field" value="@student.zipcode"></td>
+                                <td><input type="text" class="form-control" class="inputs" name="zipcode" id="zipcode" placeholder="Input field" value="@student.zipcode" maxlength="40" required></td>
                             </tr>
 
                             <tr>
                                 <td><b>Postadress</b></td>
-                                <td><input type="text" class="form-control" class="inputs" name="city" id="city" placeholder="Input field" value="@student.city"></td>
+                                <td><input type="text" class="form-control" class="inputs" name="city" id="city" placeholder="Input field" value="@student.city" maxlength="40" required></td>
                             </tr>
                             <tr>
                                 <td><b>Notifiera via mejl</b></td>
