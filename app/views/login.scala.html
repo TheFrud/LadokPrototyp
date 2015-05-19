@@ -12,8 +12,15 @@
         </div>
 
 
+
     <form action="@routes.Application.login()" method="POST" class="form" role="form">
-        <legend>Logga in</legend>
+    <h1>Hej! <small>Fyll i dina uppgifter nedan och logga in&nbsp <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></small></h1>
+
+
+
+<legend></legend>
+
+
         <div class="form-group">
             <label>Användarnamn</label>
             <input required type="text" class="form-control" name="username" placeholder="Användarnamn">
@@ -26,9 +33,8 @@
         <button type="submit" class="btn btn-success">Logga in</button>
     </form>
    <!-- @response-->
+        <br>
 
-
-<br>
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <a href="@routes.Application.logout()">Logga ut</a>
@@ -36,14 +42,8 @@
 
         </div>
 
-        <br><br><br>
-        Göbbar -> Skapa ett studentkonto <a href="@routes.Administration.student()">här</a>
-        <br>
-        Kör på minnesdatabasen nu så ingen databas-konfigurering behövs för att få det att funka.
-
-
     </div>
-
+<br>
 
 
 }

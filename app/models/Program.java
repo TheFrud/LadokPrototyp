@@ -38,6 +38,7 @@ public class Program extends Model {
     public String code;
     public String points;
     public String rate;
+    public String kattmat;
 
     public GregorianCalendar startDate;
     public GregorianCalendar endDate;

@@ -13,15 +13,15 @@
 
         <b>Program:</b> Systemvetenskap
         <div class="progress">
-            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                <span class="sr-only">20% Complete</span>60% avklarat
+            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                <span class="sr-only">20% Complete</span>66% avklarat
             </div>
         </div>
 
         <b>P&aringg&aringende kurs:</b> Interaktionsdesign
         <div class="progress">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                <span class="sr-only">40% Complete (success)</span>50 % avklarat
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                <span class="sr-only">70% Complete (success)</span>90 % avklarat
             </div>
         </div>
 
@@ -35,15 +35,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Kurser & registreringar
+                            Kurser & registreringar
                         </a>
                     </h4>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
 
-                        <h3>Du &aumlr registrerad p&aring:</h3>
+                        <h4>Kurser du &aumlr registrerad p&aring</h4>
                         <table class="table table-striped">
                             <tr>
                                 <th>Kursnamn</th>
@@ -57,9 +58,9 @@
 
                                     <tr class="info">
                                         <td>
-
+                                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                                             <a data-toggle="collapse" href="#@course.startDate" aria-expanded="false" aria-controls="collapseExample">
-                                                <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>  @course.name</font>
+                                                <font color="black">@course.name</font>
                                             </a>
 
                                             <div class="collapse" id="@course.startDate">
@@ -105,7 +106,7 @@
 
 
                             <!--!!!!!!!!!!!!! DU KAN REGISTRERA DIG TILL !!!!!!!!!!!!!!! -->
-                        <h3>Du kan registrera dig till:</h3>
+                        <h4>Kurser du kan registrera dig till</h4>
                         <table class="table table-striped">
                             <tr>
                                 <th>Ben&aumlmning</th>
@@ -119,8 +120,9 @@
                                     <tr class="warning">
 
                                         <td>
+                                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                                             <a data-toggle="collapse" href="#@course.startDate" aria-expanded="false" aria-controls="collapseExample">
-                                                <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @course.name</font>
+                                                <font color="black">@course.name</font>
                                             </a>
 
                                             <div class="collapse" id="@course.startDate">
@@ -146,13 +148,22 @@
                                 }
                             }
 
+                            @for(program <- student.programs) {
+                                @for(course <- program.coursesCanRegister()) {
+                                    @if(program.coursesCanRegister().size == 0){
+                                        Inga kurser.
+                                    }
+
+                                }
+                            }
+
                         </table>
 
                         <legend></legend>
 
 
                             <!--!!!!!!!!!! DU AR KLAR MED !!!!!!!!!!!!!!-->
-                        <h3>Du &aumlr klar med:</h3>
+                        <h4>Kurser du &aumlr klar med</h4>
                         <table class="table table-striped">
                             <tr>
                                 <th>Kursnamn</th>
@@ -165,8 +176,9 @@
                                 @for(course <- program.coursesCompleted()) {
                                     <tr class="success">
                                         <td>
+                                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                                             <a data-toggle="collapse" href="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExample">
-                                                <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @course.name</font>
+                                                <font color="black">@course.name</font>
                                             </a>
 
                                             <div class="collapse" id="collapseExampleTwo">
@@ -207,19 +219,17 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingThree">
                     <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Tentamen </a>
-                        </a>
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Tentamen</a>
                     </h4>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                     <div class="panel-body">
 
-                            <!--DU AR ANMALD TILL -->
-                        <h3>Du &aumlr anm&aumlld till:</h3>
+                        <h4>Tentamen du &aumlr anm&aumlld till</h4>
                         <table class="table table-striped">
                             <tr>
-                                <th>Kurs</th>
+                                <th>Tentamen</th>
                                 <th>Datum & tid</th>
 
                             </tr>
@@ -228,236 +238,235 @@
                                 @for(course <- program.coursesRegistered()) {
                                     @for(examination <- course.examinationsRegistered()){
                                         <tr class="info">
+                                            <td>
+                                                <a data-toggle="collapse" href="#@examination.id" aria-expanded="false" aria-controls="collapseExample">
+                                                    <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @examination.name</font>
+                                                </a>
+
+                                                <div class="collapse" id="@examination.id">
+                                                    <br>
+                                                    <div class="well-default">
+                                                        Lokal ansl&arings i hus Saga klockan 8.00
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>@examination.examinationDate kl @examination.timeStart</td>
+                                        </tr>
+
+                                    }
+                                }
+                            }
+
+                        </table>
+
+
+
+
+
+                        </table>
+
+
+                        <legend></legend>
+
+                            <!-- DU KAN ANMALA DIG TILL -->
+                        <h4>Tentamen du kan anm&aumlla dig till</h4>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Tenta</th>
+                                <th></th>
+
+                            </tr>
+
+                            @for(program <- student.programs) {
+                                @for(course <- program.coursesCanRegister()) {
+                                    @for(examination <- course.examinationsCanRegister())   {
+                                        <tr class="warning">
                                             <td>@examination.name</td>
-                                            <td>@examination.examinationDate</td>
+                                            <td>
+                                                <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
+                                                    <input type="hidden" name="id" value="@examination.id"></input>
+
+                                                    <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+
+                                                        <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                            &nbsp Anm&aumll</a href=""></td>-->
+                                                </form>
+                                        </tr>
+                                    }
+
+
+                                }
+                                @for(course <- program.coursesRegistered()) {
+                                    @for(examination <- course.examinationsCanRegister())   {
+                                        <tr class="warning">
+                                            <td>@examination.name</td>
+                                            <td>
+                                                <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
+                                                    <input type="hidden" name="id" value="@examination.id"></input>
+
+                                                    <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
+
+                                                        <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                            &nbsp Anm&aumll</a href=""></td>-->
+                                                </form>
                                         </tr>
                                     }
                                 }
-                                @for(course <- program.coursesCanRegister()) {
-                                    @for(examination <- course.examinationsRegistered()){
-                                        <tr class="info">
-                                            <td>@examination.name</td>
-                                            <td>@examination.examinationDate</td>
+                            }
+
+                        </table>
+
+                        <legend></legend>
+
+
+                            <!--AVKLARADE TENTOR-->
+                        <h4>Genomf&oumlrda tentamen</h4>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Tentamen</th>
+                                <th>Betyg</th>
+
+
+                            </tr>
+
+                            @for(program <- student.programs){
+                                @for(course <- program.coursesCompleted()) {
+                                    @for(examination <- course.examinationsCompleted()) {
+                                        <tr class="success">
+                                            <td>
+                                                <a data-toggle="collapse" href="#collapseExampleTenta" aria-expanded="false" aria-controls="collapseExample">
+                                                    <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @examination.name</font>
+                                                </a>
+
+                                                <div class="collapse" id="collapseExampleTenta">
+                                                    <br>
+                                                    <div class="well-default">
+                                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                                            &nbsp H&aumlmta tentan</a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>@examination.grade</td>
                                         </tr>
                                     }
+
                                 }
                             }
                         </table>
 
+                    </div>
+                </div>
+            </div>
 
-                            <legend></legend>
+                <!-- ##########################################################################################################-->
 
-                                <!-- DU KAN ANMALA DIG TILL -->
-                            <h3>Du kan anm&aumlla dig till: </h3>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Tenta</th>
-                                    <th></th>
+                <!-- !!!!!!!! ELEMENT 3, Intyg, examen och studieavbrott !!!!!!!!!!!!!!!!!!-->
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Intyg, examen & studieavbrott</a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
 
-                                </tr>
+                            <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModalOne">
+                            Studieintyg
+                        </button>
 
+                            <!-- Modal -->
+                        <div class="modal fade" id="myModalOne" tabindex="-1" role="dialog" aria-labelledby="myModalLabelOne" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabelOne">Skapa studieintyg</h4>
+                                    </div>
+                                    <div class="modal-body">
 
+                                        Vilket intyg villl du skapa?
 
-                                @for(program <- student.programs) {
-                                @for(course <- program.coursesCanRegister()) {
-                                @for(examination <- course.examinationsCanRegister())   {
-                                    <tr class="warning">
-                                        <td>@examination.name</td>
-                                        <td>
-                                            <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
-                                                <input type="hidden" name="id" value="@examination.id"></input>
-
-                                                <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
-
-                                                <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                                            &nbsp Anm&aumll</a href=""></td>-->
-                                        </form>
-                                    </tr>
-                                }
-
-
-                            }
-                                    @for(course <- program.coursesRegistered()) {
-                                        @for(examination <- course.examinationsCanRegister())   {
-                                            <tr class="warning">
-                                                <td>@examination.name</td>
-                                                <td>
-                                                    <form action="@routes.Application.registerForExamination()" method="POST" class="form" role="form">
-                                                        <input type="hidden" name="id" value="@examination.id"></input>
-
-                                                        <button type="submit"  id="myButton" data-loading-text="Sparar..." class="btn btn-primary" autocomplete="off">Spara</button>
-
-                                                            <!--<a href="" type="submit" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                                            &nbsp Anm&aumll</a href=""></td>-->
-                                                    </form>
-                                            </tr>
-                                        }
-
-
-                                    }
-                                }
-
-                                @for(program <- student.programs) {
-                                    @for(course <- program.coursesCanRegister()) {
-                                        @if(course.examinationsCanRegister().size == 0){
-                                            Inga kurser.
-                                        }
-
-                                    }
-                                }
-
-                            </table>
-
-                            <legend></legend>
-
-
-                                <!--AVKLARADE TENTOR-->
-                            <h3>Avklarade tentor:</h3>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Kursnamn</th>
-                                    <th>Betyg</th>
-
-
-                                </tr>
-
-                                @for(program <- student.programs){
-                                @for(course <- program.coursesCompleted()) {
-                                @for(examination <- course.examinationsCompleted()) {
-                                    <tr class="success">
-                                        <td>
-                                            <a data-toggle="collapse" href="#collapseExampleTenta" aria-expanded="false" aria-controls="collapseExample">
-                                                <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @examination.name</font>
-                                            </a>
-
-                                            <div class="collapse" id="collapseExampleTenta">
-                                                <br>
-                                                <div class="well-default">
-                                                    <a href="" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-                                                        &nbsp H&aumlmta tentan</a>
-
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td>@examination.grade</td>
-                                    </tr>
-                                }
-
-                                }
-                                }
-                            </table>
-
-                            </div>
-                            </div>
-                            </div>
-
-
-                                <!-- ##########################################################################################################-->
-
-                                <!-- !!!!!!!! ELEMENT 3, Intyg, examen och studieavbrott !!!!!!!!!!!!!!!!!!-->
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingFive">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Intyg, examen & studieavbrott</a>
-                                    </h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
+                                        <button type="button" class="btn btn-primary">Skapa intyg</button>
+                                    </div>
                                 </div>
-                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                    <div class="panel-body">
+                            </div>
+                        </div>
 
-                                            <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModalOne">
-                                            Studieintyg
-                                        </button>
+                        <br>
+                            <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModalTwo">
+                            Examensans&oumlkan
+                        </button>
 
-                                            <!-- Modal -->
-                                        <div class="modal fade" id="myModalOne" tabindex="-1" role="dialog" aria-labelledby="myModalLabelOne" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabelOne">Skapa studieintyg</h4>
-                                                    </div>
-                                                    <div class="modal-body">
+                            <!-- Modal -->
+                        <div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Examensans&oumlkan</h4>
+                                    </div>
+                                    <div class="modal-body">
 
-                                                        Vilket intyg villl du skapa?
+                                        Ans&oumlk om examen - vilka kurser vill du inkludera?
 
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                                        <button type="button" class="btn btn-primary">Skapa intyg</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
+                                        <button type="button" class="btn btn-primary">Spara</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                            <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#myModalThree">
+                            Avbryt studier
+                        </button>
 
-                                        <br>
-                                            <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModalTwo">
-                                            Examensans&oumlkan
-                                        </button>
+                            <!-- Modal -->
+                        <div class="modal fade" id="myModalThree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Avsluta studier</h4>
+                                    </div>
+                                    <div class="modal-body">
 
-                                            <!-- Modal -->
-                                        <div class="modal fade" id="myModalTwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Examensans&oumlkan</h4>
-                                                    </div>
-                                                    <div class="modal-body">
+                                        Vad vill du avsluta?
 
-                                                        Ans&oumlk om examen - vilka kurser vill du inkludera?
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                                        <button type="button" class="btn btn-primary">Spara</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                            <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#myModalThree">
-                                            Avbryt studier
-                                        </button>
-
-                                            <!-- Modal -->
-                                        <div class="modal fade" id="myModalThree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Avsluta studier</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        Vad vill du avsluta?
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                                        <button type="button" class="btn btn-primary">Spara</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
+                                        <button type="button" class="btn btn-primary">Spara</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-                                            <!--
+                            <!--
                     <button type="button" class="btn btn-primary btn-lg btn-block">Examensans&oumlkan</button>
                     <button type="button" class="btn btn-danger btn-lg btn-block">Avsluta studier</button>
 -->
 
-                                    </div>
-                                </div>
-                            </div>
-
-
                     </div>
                 </div>
+            </div>
 
-</body>
+
+        </div>
+        </div>
+
+    </body>

@@ -9,6 +9,7 @@ GET         /                         controllers.Application.index
 GET         /readme                   controllers.Application.readme
 GET         /login                    controllers.Application.loginPage(response: String)
 
+
 #Actions
 POST        /login                    controllers.Application.login()
 GET         /logout                   controllers.Application.logout()

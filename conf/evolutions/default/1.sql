@@ -59,6 +59,7 @@ create table program (
   code                      varchar(255),
   points                    varchar(255),
   rate                      varchar(255),
+  kattmat                   varchar(255),
   constraint pk_program primary key (id))
 ;
 
