@@ -27,6 +27,59 @@
     </head>
     <body>
         @content
+<<<<<<< HEAD
 
+=======
+        <!-- Flash scope stuff -->
+        @if(flash.get("success") != null){
+            <div class="modal fade" id="messageModalSuccess">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">@flash.get("successTitle")</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>@flash.get("success")</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <script type="text/javascript">
+            $(window).load(function(){
+            $('#messageModalSuccess').modal('show');
+            });
+            </script>
+        }
+
+        @if(flash.get("failure") != null){
+            <div class="modal fade" id="messageModalFailure">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">@flash.get("failureTitle")</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>@flash.get("failure")</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <script type="text/javascript">
+            $(window).load(function(){
+            $('#messageModalFailure').modal('show');
+            });
+            </script>
+        }
+>>>>>>> 08393e3e66c30cf140d96fd8cd86e2a8e0dc3f5c
     </body>
 </html>
