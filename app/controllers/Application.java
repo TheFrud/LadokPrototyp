@@ -194,7 +194,7 @@ public class Application extends Controller {
             if (!Student.findByUsername(loggedInUser).equals(null)) {
                 Student studentToChange = Student.findByUsername(loggedInUser);
 
-                Activity activity = new Activity("Du har avregistrerat från kurs " + courseToChange.name);
+                Activity activity = new Activity("Du har avregistrerat dig från kurs " + courseToChange.name);
                 studentToChange.activities.add(activity);
                 studentToChange.save();
 
