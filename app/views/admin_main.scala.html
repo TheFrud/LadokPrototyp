@@ -32,39 +32,22 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h2><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>&nbsp Ladok</h2>
+
             </div>
         </div>
 
+            @content
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="@routes.Administration.index("")"><i class="fa fa-cog"></i> Administration</a>
-                </div>
+<br>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="@routes.Application.index()"><i class="fa fa-share-square"></i> Till studentgränssnitt</a></li>
-                        <li><a href="@routes.Administration.student()">Student</a></li>
-                        <!-- <li><a href="@routes.Administration.studier()">Studier</a></li> -->
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-    @content
-<!--
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <a href="@routes.Application.logout()">Logga ut</a>
                 </div>
+
+            </div><!-- /.container-fluid -->
+
+
 
         </div>
 -->
