@@ -1,5 +1,8 @@
 package models;
 
+import com.avaje.ebean.Ebean;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -8,7 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Fredrik on 2015-05-04.
@@ -69,17 +75,22 @@ public class Student extends Model {
 
     // Hämta alla aktiviteter
     public List<Activity> getAllActivities() {
-        List<Activity> innerAllActivities = new ArrayList<>();
-        for(Activity activity: activities) {
-            innerAllActivities.add(activity);
-        }
-        return innerAllActivities;
+
+        return activities;
     }
+    /*
+    public List<Activity> getAllActivities() {
+
+        List<Activity> reversedList = activities;
+        Collections.reverse(reversedList);
+        return reversedList;
+    }
+    */
 
     // Hämta 3 aktiviteter
     public List<Activity> getThreeActivities() {
         List<Activity> innerThreeActivities = new ArrayList<>();
-        for(Activity activity: activities) {
+        for(Activity activity: Lists.reverse(activities)) {
             if(innerThreeActivities.size() == 3){
                 return innerThreeActivities;
             }
@@ -88,7 +99,18 @@ public class Student extends Model {
         return innerThreeActivities;
     }
 
-
+    /*
+    public List<Activity> getThreeActivities() {
+        List<Activity> innerThreeActivities = new ArrayList<>();
+        for(Activity activity: Lists.reverse(activities)) {
+            if(innerThreeActivities.size() == 3){
+                return innerThreeActivities;
+            }
+            innerThreeActivities.add(activity);
+        }
+        return innerThreeActivities;
+    }
+    */
 
     public static Finder<Long, Student> find = new Finder<Long, Student>(Long.class, Student.class);
 

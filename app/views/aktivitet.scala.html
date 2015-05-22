@@ -11,7 +11,7 @@
         <th>Händelse</th>
     </tr>
 
-    @for(a <- student.getThreeActivities) {
+    @for(a <- student.getThreeActivities().toList.sortBy(h => -h.id).toList) {
         <tr>
             <td>@a.date</td>
             <td>@a.text</td>
