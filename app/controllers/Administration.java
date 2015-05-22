@@ -106,7 +106,7 @@ public class Administration extends Controller{
         examinationCanRegister1.setExaminationDate("2014-04-05");
         examinationCanRegister1.setLocal("Hus Saga (3b)");
 
-        Examination examinationCanRegister = new Examination("Företagsekonomi Tentamen", "7.5", "", "CanRegister");
+        Examination examinationCanRegister = new Examination("Företag och ekonomi Tentamen", "7.5", "", "CanRegister");
         examinationCanRegister.setRegisterDate("2014-03-01", "2013-03-18");
         examinationCanRegister.setTimeStartAndEnd("09.00", "13.00");
         examinationCanRegister.setExaminationDate("2014-04-05");
@@ -137,7 +137,7 @@ public class Administration extends Controller{
         courseRegistered.examinations.add(examinationCanRegister1);
         courseRegistered.assignments.add(assignmentTig016_1);
 
-        Course courseCanRegister = new Course("Företagsekonomi", "TIG058", "15", "100", "CanRegister", "");
+        Course courseCanRegister = new Course("Företag och ekonomi", "TIG058", "15", "100", "CanRegister", "");
         courseCanRegister.setRegisterDate("2014-01-01" , "2014-01-15");
         courseCanRegister.setStartAndEndDate("2014-01-25", "2014-03-29");
         courseCanRegister.examinations.add(examinationCanRegister);

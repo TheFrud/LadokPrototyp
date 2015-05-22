@@ -38,6 +38,7 @@ public class Student extends Model {
     public String zipcode;
     public String city;
     public String email;
+    public String test;
 
     public boolean notifyByEmail = true;
 
