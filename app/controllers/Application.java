@@ -76,7 +76,7 @@ public class Application extends Controller {
         session().remove("loggedIn");
 
         String successTitle = "Du har loggat ut!";
-        String success = "Välkommen tillbaka!";
+        String success = "Välkommen tillbaka en annan gång!";
         flash("successTitle", successTitle);
         flash("success", success);
 
