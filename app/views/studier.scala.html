@@ -70,12 +70,8 @@
                                                     <b>Startdatum:</b><br>@course.startDate<br>
                                                     <b>Slutdatum:</b><br>@course.endDate<br><br>
                                                     <b>Betyg</b><br>
-                                                    @for(examination <- course.examinationsRegistered()){
-                                                        @examination.name
-                                                    }
-                                                    <br>
                                                     @for(assignment <- course.assignments) {
-                                                        @assignment.name
+                                                        @assignment.name |<b> @assignment.grade</b> <br>
                                                     }
 
 
@@ -177,11 +173,11 @@
                                     <tr class="success">
                                         <td>
                                             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                                            <a data-toggle="collapse" href="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExample">
+                                            <a data-toggle="collapse" href="#@course.id" aria-expanded="false" aria-controls="collapseExample">
                                                 <font color="black">@course.name</font>
                                             </a>
 
-                                            <div class="collapse" id="collapseExampleTwo">
+                                            <div class="collapse" id="@course.id">
                                                 <br>
                                                 <div class="well-default">
                                                     <b>Startdatum:</b><br> @course.startDate<br>
@@ -235,11 +231,12 @@
                                     @for(examination <- course.examinationsRegistered()){
                                         <tr class="info">
                                             <td>
-                                                <a data-toggle="collapse" href="#@examination.id" aria-expanded="false" aria-controls="collapseExample">
-                                                    <font color="black"> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> @examination.name</font>
+                                                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                                                <a data-toggle="collapse" href="#asd" aria-expanded="false" aria-controls="collapseExample">
+                                                    <font color="black">  @examination.name</font>
                                                 </a>
 
-                                                <div class="collapse" id="@examination.id">
+                                                <div class="collapse" id="asd">
                                                     <br>
                                                     <div class="well-default">
                                                         Lokal ansl&arings i hus Saga klockan 8.00
@@ -358,7 +355,7 @@
                                                 <div class="collapse" id="collapseExampleTenta">
                                                     <br>
                                                     <div class="well-default">
-                                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                                        <a href="/ejrealiserad" role="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
                                                             &nbsp H&aumlmta tentan</a>
 
                                                     </div>
@@ -430,7 +427,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-primary">Skapa intyg</a>
+                                        <a href="/ejrealiserad" role="button" class="btn btn-primary">Skapa intyg</a>
 
                                     </div>
                                 </div>
@@ -470,7 +467,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-primary">Skicka examensans&oumlkan</a>
+                                        <a href="/ejrealiserad" role="button" class="btn btn-primary">Skicka examensans&oumlkan</a>
                                     </div>
                                 </div>
                             </div>
@@ -510,7 +507,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">St&aumlng</button>
-                                        <a href="/ejrealiserad" target="_blank" role="button" class="btn btn-warning"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbspSkicka!</a>
+                                        <a href="/ejrealiserad" role="button" class="btn btn-warning"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbspSkicka!</a>
                                     </div>
                                 </div>
                             </div>

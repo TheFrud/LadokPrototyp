@@ -35,7 +35,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">@flash.get("successTitle")</h4>
+                            <h4 class="modal-title"><font color="green"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></font> &nbsp@flash.get("successTitle")</h4>
                         </div>
                         <div class="modal-body">
                             <p>@flash.get("success")</p>
@@ -60,7 +60,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">@flash.get("failureTitle")</h4>
+                            <h4 class="modal-title"><font color="red"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span></font> &nbsp@flash.get("failureTitle")</h4>
                         </div>
                         <div class="modal-body">
                             <p>@flash.get("failure")</p>

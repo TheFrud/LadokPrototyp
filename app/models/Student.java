@@ -38,9 +38,8 @@ public class Student extends Model {
     public String zipcode;
     public String city;
     public String email;
-    public String test;
 
-    public boolean notifyByEmail = true;
+    public boolean notifyByEmail = false;
 
     public String toString(){
         return username + " (" + firstName + " " + surname + ")";

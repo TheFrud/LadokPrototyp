@@ -12,10 +12,9 @@
         </div>
 
 
-
-    <form action="@routes.Application.login()" method="POST" class="form" role="form">
+<div class="jumbotron">
     <h2>Logga in</h2>
-
+    <form action="@routes.Application.login()" method="POST" class="form" role="form">
 
 
 <legend></legend>
@@ -31,13 +30,16 @@
         </div>
 
         <button type="submit" class="btn btn-success">Logga in</button>
+        <a href="/admin/student" role="button" class="btn btn-primary">Skapa studentkonto</a>
     </form>
+
+</div>
+
    <!-- @response-->
-        <br>
+
 
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <a href="@routes.Application.logout()">Logga ut</a>
             </div>
 
         </div>
