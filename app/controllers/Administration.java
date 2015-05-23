@@ -113,9 +113,9 @@ public class Administration extends Controller{
         Assignment assignmentTig016_1 = new Assignment("Gruppuppgift", "7.5", "Inväntar");
         Assignment assignmentTig016_2 = new Assignment("Tentamen", "7.5", "Inväntar");
 
-        Assignment assignmentTig058_1 = new Assignment("Gruppuppgift 1", "2.0", "Inväntar");
-        Assignment assignmentTig058_2 = new Assignment("Gruppuppgift 2", "2.5", "VG");
-        Assignment assignmentTig058_3 = new Assignment("Gruppuppgift 3", "3.0", "G");
+        Assignment assignmentTig058_1 = new Assignment("Gruppuppgift 1", "2.0", "VG");
+        Assignment assignmentTig058_2 = new Assignment("Gruppuppgift 2", "2.5", "G");
+        Assignment assignmentTig058_3 = new Assignment("Gruppuppgift 3", "3.0", "Inväntar");
         //Magnus lägger till
         Assignment assignmentTig012_1 = new Assignment("Gruppuppgift 2", "2.5", "G");
         Assignment assignmentTig012_2 = new Assignment("Gruppuppgift 3", "3.0", "VG");
