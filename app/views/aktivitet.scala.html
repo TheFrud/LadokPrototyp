@@ -1,6 +1,5 @@
 @(student: Student)
 
-
 <!-- Lista med nya händelser berörande en viss student -->
 
 <table class="table table-striped">
@@ -12,10 +11,11 @@
     </tr>
 
     @for(a <- student.getThreeActivities().toList.sortBy(h => -h.id).toList) {
-        <tr>
-            <td>@a.date</td>
-            <td>@a.text</td>
-        </tr>
+            <tr>
+                <td>@a.date</td>
+                <td>@a.text</td>
+            </tr>
+
     }
 </table>
 

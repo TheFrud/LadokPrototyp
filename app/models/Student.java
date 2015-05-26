@@ -75,7 +75,6 @@ public class Student extends Model {
 
     // Hämta alla aktiviteter
     public List<Activity> getAllActivities() {
-
         return activities;
     }
     /*
@@ -89,13 +88,22 @@ public class Student extends Model {
 
     // Hämta 3 aktiviteter
     public List<Activity> getThreeActivities() {
+        List<Activity> activitiesCopy = new ArrayList<>(activities);
+        Collections.reverse(activitiesCopy);
         List<Activity> innerThreeActivities = new ArrayList<>();
+        for(int i = 0; i< activitiesCopy.size()-1; i++){
+            if(i < 3){
+                innerThreeActivities.add(activitiesCopy.get(i));
+        }
+        }
+        /*
         for(Activity activity: activities) {
             if(innerThreeActivities.size() == 3){
                 return innerThreeActivities;
             }
             innerThreeActivities.add(activity);
         }
+        */
         return innerThreeActivities;
     }
 

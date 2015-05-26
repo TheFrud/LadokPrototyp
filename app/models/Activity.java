@@ -14,7 +14,7 @@ import java.util.Locale;
 
 
 @Entity
-public class Activity extends Model {
+public class Activity extends Model{
 
     @Id
     public long id;
@@ -28,4 +28,5 @@ public class Activity extends Model {
         this.date = formater.format(new Date());
         this.text = text;
     }
+
 }
