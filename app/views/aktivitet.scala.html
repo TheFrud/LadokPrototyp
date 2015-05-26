@@ -10,7 +10,7 @@
         <th>Händelse</th>
     </tr>
 
-    @for(a <- student.getThreeActivities().toList.sortBy(h => -h.id).toList) {
+    @for(a <- student.getAllActivities().toList.sortBy(h => -h.id).toList.take(3)) {
             <tr>
                 <td>@a.date</td>
                 <td>@a.text</td>
