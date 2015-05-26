@@ -1,7 +1,11 @@
 @admin_main("Ladok 2.0 - Administration - Student") {
 
+<div class="jumbotron">
     <form action="@routes.Administration.addStudent()" method="POST" class="form" role="form">
-        <legend>Lägg till student</legend>
+        <h2>Lägg till studentkonto</h2>
+        Obs, denna funktion finns endast tillgänglig i prototypen för att underlätta test. Normalt sköts skapandet av konton av studieadministrationen.
+        <legend></legend>
+
         <div class="form-group">
             <label>Användarnamn</label>
             <input required type="text" class="form-control" name="username" placeholder="Användarnamn">
@@ -45,20 +49,10 @@
 
 
         <button type="submit" class="btn btn-success">Lägg till</button>
+        <a href="/" role="button" class="btn btn-primary">Tillbaka</a>
     </form>
 
+</div>
 
-
-
-    <!--
-    <h4>*Ska kunna göras här*</h4>
-    <i>
-        <ul>
-            <li>Skapa student</li>
-            <li>Redigera student</li>
-            <li>Ta bort student</li>
-        </ul>
-    </i>
-    -->
 
 }

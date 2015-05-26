@@ -1,9 +1,12 @@
 @(response: String)
 @admin_main("Ladok 2.0 - Administration") {
-
-    @response
-<br><br>
-    <a href="/" type="button" class="btn btn-success btn-lg btn-block">Logga in!</a>
+<div class="jumbotron">
+  <center><h2>  @response</h2>
+<br>
+    <a href="/" type="button" class="btn btn-success">Logga in!</a>
+      <a href="/admin/student" role="button" class="btn btn-primary">Tillbaka</a>
+  </center>
+</div>
 
 
 }

@@ -39,7 +39,7 @@ public class Student extends Model {
     public String city;
     public String email;
 
-    public boolean notifyByEmail = true;
+    public boolean notifyByEmail = false;
 
     public String toString(){
         return username + " (" + firstName + " " + surname + ")";
@@ -90,7 +90,7 @@ public class Student extends Model {
     // Hämta 3 aktiviteter
     public List<Activity> getThreeActivities() {
         List<Activity> innerThreeActivities = new ArrayList<>();
-        for(Activity activity: Lists.reverse(activities)) {
+        for(Activity activity: activities) {
             if(innerThreeActivities.size() == 3){
                 return innerThreeActivities;
             }

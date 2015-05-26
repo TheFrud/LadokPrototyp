@@ -33,8 +33,15 @@ public class Application extends Controller {
         return ok(readme.render());
     }
 
+    //Den här metoden är bara skapad för att skicka vidare till information om att sidan inte är realiserad
     public static Result ejRealiserad(){
-        return ok(ejRealiserad.render());
+
+        String failureTitle = "Funktionen ej realiserad!";
+        String failure = "Denna funktion är ej realiserad i prototypen //Mvh De Molen";
+        flash("failureTitle", failureTitle);
+        flash("failure", failure);
+
+        return redirect(controllers.routes.Application.index());
     }
 
     public static Result loginPage (String response) {
@@ -67,6 +74,12 @@ public class Application extends Controller {
 
     public static Result logout() {
         session().remove("loggedIn");
+
+        String successTitle = "Du har loggat ut!";
+        String success = "Välkommen tillbaka en annan gång!";
+        flash("successTitle", successTitle);
+        flash("success", success);
+
         return redirect(controllers.routes.Application.loginPage("Du har nu loggats ut."));
     }
 
@@ -211,10 +224,10 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
-                String successTitle = "Avregistrerad!";
-                String success = "Du har nu avregistrerat dig från kursen " + courseToChange.name + "!";
-                flash("successTitle", successTitle);
-                flash("success", success);
+                String failureTitle = "Avregistrerad!";
+                String failure = "Du har nu avregistrerat dig från kursen " + courseToChange.name + "!";
+                flash("failureTitle", failureTitle);
+                flash("failure", failure);
 
             }
         } catch (Exception e) {
@@ -309,10 +322,10 @@ public class Application extends Controller {
                             "<html><body><h3>" + activity.text + "</h3></body></html>");
                     MailerPlugin.send(mail);
                 }
-                String successTitle = "Avanmäld!";
-                String success = "Du har nu avavanmält dig från " + examinationToChange.name + "!";
-                flash("successTitle", successTitle);
-                flash("success", success);
+                String failureTitle = "Avanmäld!";
+                String failure = "Du har nu avavanmält dig från " + examinationToChange.name + "!";
+                flash("failureTitle", failureTitle);
+                flash("failure", failure);
 
             }
         } catch (Exception e) {
